@@ -16,14 +16,17 @@ def randomChar():
 
 def getRamdomPhoneModel():
     script_directory = os.path.dirname(os.path.abspath(__file__))
-    devices_file_path = os.path.join(script_directory, 'devices.json')
-    
-    with open(devices_file_path, 'r', encoding='utf-8', errors='replace') as f:
+    devices_file_path = os.path.join(script_directory, "devices.json")
+
+    with open(devices_file_path, "r", encoding="utf-8", errors="replace") as f:
         data = json.load(f)
 
-        
     # cari yang key "brand" nya tidak kosong dan == samsung atau Redmi
-    data = [x for x in data if x['brand'] != "" and (x['brand'] == "samsung" or x['brand'] == "Redmi")]
+    data = [
+        x
+        for x in data
+        if x["brand"] != "" and (x["brand"] == "samsung" or x["brand"] == "Redmi")
+    ]
     # ambil random
     data = random.choice(data)
     # print(data)
@@ -35,7 +38,7 @@ def randomPort():
     return str(random.randint(10000, 10004))
 
 
-def getListProductByKeyword(keyword, page, filter):
+def getListProductByKeyword(keyword, page):
     data = getRamdomPhoneModel()
     if page == 0:
         newest = "0"
@@ -66,8 +69,8 @@ def getListProductByKeyword(keyword, page, filter):
     )
 
     headers = {
-        "Host": "mall.shopee.co.id",
-        "Referer": "https://mall.shopee.co.id/",
+        "Host": "shopee.co.id",
+        "Referer": "https://shopee.co.id/",
         "X-Api-Source": "rn",
         "X-Shopee-Language": "id",
         "X-Phone-Brand": data["brand"],
@@ -100,13 +103,14 @@ def getListProductByKeyword(keyword, page, filter):
     }
 
     response = requests.get(
-        "https://mall.shopee.co.id/api/v4/search/search_items",
+        "https://shopee.co.id/api/v4/search/search_items",
         params=params,
         headers=headers,
         proxies=proxies,
     )
     # print(response.json())
     return response.json()
+
 
 def getShopDetail(username_store):
     data = getRamdomPhoneModel()
@@ -134,8 +138,8 @@ def getShopDetail(username_store):
     )
 
     headers = {
-        "Host": "mall.shopee.co.id",
-        "Referer": "https://mall.shopee.co.id/",
+        "Host": "shopee.co.id",
+        "Referer": "https://shopee.co.id/",
         "X-Api-Source": "rn",
         "X-Shopee-Language": "id",
         "X-Phone-Brand": data["brand"],
@@ -157,13 +161,12 @@ def getShopDetail(username_store):
     }
 
     params = {
-    'entry_point': '',
-    'need_cancel_rate': 'true',
-    'request_source': 'shop_home_page',
-    'username': 'shastore08',
-    'version': '1',
-}
-
+        "entry_point": "",
+        "need_cancel_rate": "true",
+        "request_source": "shop_home_page",
+        "username": "shastore08",
+        "version": "1",
+    }
 
     response = requests.get(
         "https://shopee.co.id/api/v4/shop/get_shop_base",
@@ -174,8 +177,8 @@ def getShopDetail(username_store):
     # print(response.json())
     return response.json()
 
+
 def getLisProductByShop(shopid):
-    
     cookie_template = {
         "SPC_R_T_ID": randomChar(),
         "SPC_R_T_IV": randomChar(),
@@ -198,7 +201,7 @@ def getLisProductByShop(shopid):
     cookie_string = "; ".join(
         [f"{key}={value}" for key, value in cookie_template.items()]
     )
-    
+
     referer = "https://shopee.co.id/shop/{}/search".format(shopid)
     headers = {
         "authority": "shopee.co.id",
@@ -226,7 +229,7 @@ def getLisProductByShop(shopid):
         "section": "shop_page_product_tab_main_sec",
         "shopid": shopid,
     }
-    
+
     proxy_url = (
         "http://firhandarief;country=ID:57fee1-d01161-63d5f9-beed9f-8105b3@38.84.70.226:"
         + randomPort()
@@ -274,6 +277,5 @@ def getLisProductByShop(shopid):
         offset += batch_size
 
     # remove duplicate products
-    final_products_list = list(
-        {v["itemid"]: v for v in final_products_list}.values())
+    final_products_list = list({v["itemid"]: v for v in final_products_list}.values())
     return final_products_list

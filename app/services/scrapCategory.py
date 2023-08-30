@@ -84,3 +84,69 @@ def getAllCategory():
     )
     # print(response.json())
     return response.json()
+
+
+def getAllCategoryLevel3(level2ID):
+    data = getRamdomPhoneModel()
+    cookie_template = {
+        "SPC_R_T_ID": randomChar(),
+        "SPC_R_T_IV": randomChar(),
+        "SPC_T_ID": randomChar(),
+        "SPC_T_IV": randomChar(),
+        "REC_T_ID": randomChar(),
+        "SPC_CLIENTID": randomChar(),
+        "language": "id",
+        "SPC_DID": randomChar(),
+        "SPC_F": f"{randomChar()}_unknown",
+        "SPC_AFTID": randomChar(),
+        "SPC_RNBV": randomChar(),
+        "_gcl_au": f"1.1.{randomChar()}.{randomChar()}",
+        "_fbp": f"fb.2.{randomChar()}.{randomChar()}",
+        "UA": f"Shopee%20Android%20Beeshop%20locale%2Fid%20version%3D738%20appver%3D29313",
+        "SPC_SI": randomChar(),
+        "csrftoken": randomChar(),
+    }
+
+    cookie_string = "; ".join(
+        [f"{key}={value}" for key, value in cookie_template.items()]
+    )
+
+    headers = {
+        "Host": "shopee.co.id",
+        "Referer": "https://shopee.co.id/",
+        "X-Api-Source": "rn",
+        "X-Shopee-Language": "id",
+        "X-Phone-Brand": data["brand"],
+        "X-Phone-Model": data["device"],
+        "If-None-Match-": "",
+        "Shopee_http_dns_mode": "1",
+        "Accept-Encoding": "gzip, deflate",
+        "User-Agent": "Android app Shopee appver=29313 app_type=13",
+        "Cookie": cookie_string,
+    }
+
+    proxy_url = (
+        "http://firhandarief;country=ID:57fee1-d01161-63d5f9-beed9f-8105b3@38.84.70.226:"
+        + randomPort()
+    )
+    proxies = {
+        "http": proxy_url,
+        "https": proxy_url,
+    }
+    
+    params = {
+        "match_id": level2ID,
+        "page_type": "search",
+        "scenario": "PAGE_CATEGORY",
+    }
+
+    response = requests.get(
+        "https://shopee.co.id/api/v4/search/search_filter_config",
+        headers=headers,
+        proxies=proxies,
+        params=params
+    )
+    # print(response.json())
+    return response.json()
+
+
