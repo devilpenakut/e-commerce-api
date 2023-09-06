@@ -4,7 +4,7 @@ import string
 import re
 import json
 import os
-
+from ..services.cookies import get_cookies
 
 def randomChar():
     return "".join(random.choice(string.ascii_letters) for i in range(100))
@@ -36,29 +36,8 @@ def randomPort():
 
 def getShopDetail(username_store):
     data = getRamdomPhoneModel()
-    cookie_template = {
-        "SPC_R_T_ID": randomChar(),
-        "SPC_R_T_IV": randomChar(),
-        "SPC_T_ID": randomChar(),
-        "SPC_T_IV": randomChar(),
-        "REC_T_ID": randomChar(),
-        "SPC_CLIENTID": randomChar(),
-        "language": "id",
-        "SPC_DID": randomChar(),
-        "SPC_F": f"{randomChar()}_unknown",
-        "SPC_AFTID": randomChar(),
-        "SPC_RNBV": randomChar(),
-        "_gcl_au": f"1.1.{randomChar()}.{randomChar()}",
-        "_fbp": f"fb.2.{randomChar()}.{randomChar()}",
-        "UA": f"Shopee%20Android%20Beeshop%20locale%2Fid%20version%3D738%20appver%3D29313",
-        "SPC_SI": randomChar(),
-        "csrftoken": randomChar(),
-    }
-
-    cookie_string = "; ".join(
-        [f"{key}={value}" for key, value in cookie_template.items()]
-    )
-
+    cookie_template = {data["name"]: data["value"] for data in get_cookies()}
+    cookie_string = "; ".join([f"{key}={value}" for key, value in cookie_template.items()])
     headers = {
         "Host": "shopee.co.id",
         "Referer": "https://shopee.co.id/",

@@ -4,6 +4,8 @@ import string
 import re
 import json
 import os
+import http.cookies
+from ..services.cookies import get_cookies
 
 # terbaru = ctime
 # terlaris = sales
@@ -45,29 +47,31 @@ def getListProductByKeyword(keyword, page):
     else:
         newest = (page - 1) * 60
 
-    cookie_template = {
-        "SPC_R_T_ID": randomChar(),
-        "SPC_R_T_IV": randomChar(),
-        "SPC_T_ID": randomChar(),
-        "SPC_T_IV": randomChar(),
-        "REC_T_ID": randomChar(),
-        "SPC_CLIENTID": randomChar(),
-        "language": "id",
-        "SPC_DID": randomChar(),
-        "SPC_F": f"{randomChar()}_unknown",
-        "SPC_AFTID": randomChar(),
-        "SPC_RNBV": randomChar(),
-        "_gcl_au": f"1.1.{randomChar()}.{randomChar()}",
-        "_fbp": f"fb.2.{randomChar()}.{randomChar()}",
-        "UA": f"Shopee%20Android%20Beeshop%20locale%2Fid%20version%3D738%20appver%3D29313",
-        "SPC_SI": randomChar(),
-        "csrftoken": randomChar(),
-    }
+    # cookie_template = {
+    #     "SPC_R_T_ID": randomChar(),
+    #     "SPC_R_T_IV": randomChar(),
+    #     "SPC_T_ID": randomChar(),
+    #     "SPC_T_IV": randomChar(),
+    #     "REC_T_ID": randomChar(),
+    #     "SPC_CLIENTID": randomChar(),
+    #     "language": "id",
+    #     "SPC_DID": randomChar(),
+    #     "SPC_F": f"{randomChar()}_unknown",
+    #     "SPC_AFTID": randomChar(),
+    #     "SPC_RNBV": randomChar(),
+    #     "_gcl_au": f"1.1.{randomChar()}.{randomChar()}",
+    #     "_fbp": f"fb.2.{randomChar()}.{randomChar()}",
+    #     "UA": f"Shopee%20Android%20Beeshop%20locale%2Fid%20version%3D738%20appver%3D29313",
+    #     "SPC_SI": randomChar(),
+    #     "csrftoken": randomChar(),
+    # }
 
-    cookie_string = "; ".join(
-        [f"{key}={value}" for key, value in cookie_template.items()]
-    )
+    # cookie_string = "; ".join(
+    #     [f"{key}={value}" for key, value in cookie_template.items()]
+    # )
 
+    cookie_template = {data["name"]: data["value"] for data in get_cookies()}
+    cookie_string = "; ".join([f"{key}={value}" for key, value in cookie_template.items()])
     headers = {
         "Host": "shopee.co.id",
         "Referer": "https://shopee.co.id/",
@@ -81,6 +85,8 @@ def getListProductByKeyword(keyword, page):
         "User-Agent": "Android app Shopee appver=29313 app_type=13",
         "Cookie": cookie_string,
     }
+    
+  
 
     proxy_url = (
         "http://firhandarief;country=ID:57fee1-d01161-63d5f9-beed9f-8105b3@38.84.70.226:"
@@ -107,6 +113,7 @@ def getListProductByKeyword(keyword, page):
         params=params,
         headers=headers,
         proxies=proxies,
+        # cookies=cookies,
     )
     # print(response.json())
     return response.json()
@@ -114,28 +121,8 @@ def getListProductByKeyword(keyword, page):
 
 def getShopDetail(username_store):
     data = getRamdomPhoneModel()
-    cookie_template = {
-        "SPC_R_T_ID": randomChar(),
-        "SPC_R_T_IV": randomChar(),
-        "SPC_T_ID": randomChar(),
-        "SPC_T_IV": randomChar(),
-        "REC_T_ID": randomChar(),
-        "SPC_CLIENTID": randomChar(),
-        "language": "id",
-        "SPC_DID": randomChar(),
-        "SPC_F": f"{randomChar()}_unknown",
-        "SPC_AFTID": randomChar(),
-        "SPC_RNBV": randomChar(),
-        "_gcl_au": f"1.1.{randomChar()}.{randomChar()}",
-        "_fbp": f"fb.2.{randomChar()}.{randomChar()}",
-        "UA": f"Shopee%20Android%20Beeshop%20locale%2Fid%20version%3D738%20appver%3D29313",
-        "SPC_SI": randomChar(),
-        "csrftoken": randomChar(),
-    }
-
-    cookie_string = "; ".join(
-        [f"{key}={value}" for key, value in cookie_template.items()]
-    )
+    cookie_template = {data["name"]: data["value"] for data in get_cookies()}
+    cookie_string = "; ".join([f"{key}={value}" for key, value in cookie_template.items()])
 
     headers = {
         "Host": "shopee.co.id",

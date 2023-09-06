@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from ..services.scrapDetail import getDetailProduct
 from ..services.scrapListproduct import getListProductByKeyword,getShopDetail,getLisProductByShop
 from ..services.scrapCategory import getAllCategory , getAllCategoryLevel3
+from ..services.cookies import addCookies
 import redis
 import json
 from functools import wraps
@@ -53,6 +54,10 @@ class ScrapByShopRequest(BaseModel):
     
 class ScrapCategoryLevel3Request(BaseModel):
     level2ID: str = "11044352"
+
+# add clas for array of cookies
+class AddShopeeCookies(BaseModel):
+    cookies: list = []  
 
 @router.post("/detailProduct")
 @cache_response(redis_client, "detail_product")
@@ -110,3 +115,10 @@ async def get_all_category_level3(data: ScrapCategoryLevel3Request):
         raise HTTPException(status_code=500, detail=str(e))
     
     
+@router.post("/addCookies")
+async def add_cookies(data: AddShopeeCookies):
+    try:
+        result = addCookies(data.cookies)
+        return {"message": "success add cookies"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
