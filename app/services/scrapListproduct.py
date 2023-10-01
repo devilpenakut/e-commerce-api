@@ -7,11 +7,10 @@ import os
 import http.cookies
 from ..services.cookies import get_cookies
 
+
 # terbaru = ctime
 # terlaris = sales
 # Terkaik = relevancy
-
-
 def randomChar():
     return "".join(random.choice(string.ascii_letters) for i in range(100))
 
@@ -47,31 +46,10 @@ def getListProductByKeyword(keyword, page):
     else:
         newest = (page - 1) * 60
 
-    # cookie_template = {
-    #     "SPC_R_T_ID": randomChar(),
-    #     "SPC_R_T_IV": randomChar(),
-    #     "SPC_T_ID": randomChar(),
-    #     "SPC_T_IV": randomChar(),
-    #     "REC_T_ID": randomChar(),
-    #     "SPC_CLIENTID": randomChar(),
-    #     "language": "id",
-    #     "SPC_DID": randomChar(),
-    #     "SPC_F": f"{randomChar()}_unknown",
-    #     "SPC_AFTID": randomChar(),
-    #     "SPC_RNBV": randomChar(),
-    #     "_gcl_au": f"1.1.{randomChar()}.{randomChar()}",
-    #     "_fbp": f"fb.2.{randomChar()}.{randomChar()}",
-    #     "UA": f"Shopee%20Android%20Beeshop%20locale%2Fid%20version%3D738%20appver%3D29313",
-    #     "SPC_SI": randomChar(),
-    #     "csrftoken": randomChar(),
-    # }
-
-    # cookie_string = "; ".join(
-    #     [f"{key}={value}" for key, value in cookie_template.items()]
-    # )
-
     cookie_template = {data["name"]: data["value"] for data in get_cookies()}
-    cookie_string = "; ".join([f"{key}={value}" for key, value in cookie_template.items()])
+    cookie_string = "; ".join(
+        [f"{key}={value}" for key, value in cookie_template.items()]
+    )
     headers = {
         "Host": "shopee.co.id",
         "Referer": "https://shopee.co.id/",
@@ -85,8 +63,6 @@ def getListProductByKeyword(keyword, page):
         "User-Agent": "Android app Shopee appver=29313 app_type=13",
         "Cookie": cookie_string,
     }
-    
-  
 
     proxy_url = (
         "http://firhandarief;country=ID:57fee1-d01161-63d5f9-beed9f-8105b3@38.84.70.226:"
@@ -122,7 +98,9 @@ def getListProductByKeyword(keyword, page):
 def getShopDetail(username_store):
     data = getRamdomPhoneModel()
     cookie_template = {data["name"]: data["value"] for data in get_cookies()}
-    cookie_string = "; ".join([f"{key}={value}" for key, value in cookie_template.items()])
+    cookie_string = "; ".join(
+        [f"{key}={value}" for key, value in cookie_template.items()]
+    )
 
     headers = {
         "Host": "shopee.co.id",
@@ -151,7 +129,7 @@ def getShopDetail(username_store):
         "entry_point": "",
         "need_cancel_rate": "true",
         "request_source": "shop_home_page",
-        "username": "shastore08",
+        "username": username_store,
         "version": "1",
     }
 
@@ -266,3 +244,78 @@ def getLisProductByShop(shopid):
     # remove duplicate products
     final_products_list = list({v["itemid"]: v for v in final_products_list}.values())
     return final_products_list
+
+
+def getListProductByCat(
+    catid_lvl1, catid_lvl2, catid_lvl3, location, page=0, filter="pop"
+):
+    
+    data = getRamdomPhoneModel()
+    cookie_template = {data["name"]: data["value"] for data in get_cookies()}
+    cookie_string = "; ".join(
+        [f"{key}={value}" for key, value in cookie_template.items()]
+    )
+
+    if page == 0:
+        newest = "0"
+    else:
+        newest = (page - 1) * 60
+    headers = {
+        "Host": "mall.shopee.co.id",
+        "Referer": "https://mall.shopee.co.id/",
+        "X-Api-Source": "rn",
+        "X-Shopee-Language": "id",
+        "X-Phone-Brand": data["brand"],
+        "X-Phone-Model": data["device"],
+        "If-None-Match-": "",
+        "Shopee_http_dns_mode": "1",
+        "Accept-Encoding": "gzip, deflate",
+        "User-Agent": "Android app Shopee appver=29313 app_type=13",
+        "Cookie": cookie_string,
+    }
+
+    proxy_url = (
+        "http://firhandarief;country=ID:57fee1-d01161-63d5f9-beed9f-8105b3@38.84.70.226:"
+        + randomPort()
+    )
+    proxies = {
+        "http": proxy_url,
+        "https": proxy_url,
+    }
+
+    params = {
+        "by": filter,
+        "limit": "60",
+        "match_id": "",
+        "newest": "0",
+        "order": "desc",
+        "page_type": "search",
+        "scenario": "PAGE_CATEGORY",
+        "version": "2",
+    }
+
+    if catid_lvl1 and not catid_lvl2 and not catid_lvl3:
+        params["match_id"] = catid_lvl1
+    elif catid_lvl2 and not catid_lvl1 and not catid_lvl3:
+        params["match_id"] = catid_lvl2
+    elif catid_lvl1 and catid_lvl3:
+        params["match_id"] = catid_lvl1
+        params["categoryids"] = catid_lvl3
+    elif catid_lvl2 and catid_lvl3:
+        params["match_id"] = catid_lvl2
+        params["categoryids"] = catid_lvl3
+        
+    if location:
+        # encode space to %20
+        params["locations"] = re.sub(" ", "%20", location) 
+        
+    print(params)
+
+    response = requests.get(
+        "https://mall.shopee.co.id/api/v4/search/search_items",
+        params=params,
+        headers=headers,
+        proxies=proxies,
+    )
+    # print(response.json())
+    return response.json()

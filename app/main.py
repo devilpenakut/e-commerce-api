@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import settings
 from app.routers import shopee  # Import the test router
+from app.routers import tokopedia
 
 def get_application():
     _app = FastAPI(title=settings.PROJECT_NAME)
@@ -15,7 +16,8 @@ def get_application():
         allow_headers=["*"],
     )
 
-    _app.include_router(shopee.router)  # Include the test router
+    _app.include_router(shopee.router)  
+    _app.include_router(tokopedia.router)
 
     return _app
 
