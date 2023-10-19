@@ -9,6 +9,7 @@ from ..services.tokped_getProductByCat import getProductBycat
 from ..services.tokped_getProductByKeyword import getProductByKeyword
 from ..services.tokped_getInfoShop import getShopInfo
 from ..services.tokped_getProductInfo import getProductInfo
+from ..services.tokped_geProductByShop import getProductByShop
 
 router = APIRouter()
 
@@ -41,6 +42,7 @@ def cache_response(redis_client, redis_key_prefix):
 
 class ScrapListSellerRequest(BaseModel):
     searchSellerList: str = "ichibot"
+    page: int = 1
     
 class  ScrapListProductRequest(BaseModel):
     page: int = 1
@@ -55,18 +57,22 @@ class ScrapListInfoShopRequest(BaseModel):
     
 class ScrapProductInfo(BaseModel):
     productURL: str = "https://www.tokopedia.com/jajanangarut19/cuanki-instan-bandung"
+    
+class ScrapProductByShop(BaseModel):
+    shopId: str = "1973484"
+    page: int = 1
 
 @router.post("/seller", tags=["Tokopedia"])
-# @cache_response(redis_client, "seller")
+@cache_response(redis_client, "seller")
 async def scrap_seller(request: ScrapListSellerRequest):
     try:
-        result = get_seller(request.searchSellerList)
+        result = get_seller(request.searchSellerList, request.page)
         return result
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.get("/GetAllCategory", tags=["Tokopedia"])
-# @cache_response(redis_client, "GetAllCategory")
+@cache_response(redis_client, "GetAllCategory")
 async def scrap_getAllCategory():
     try:
         result = getAllCategory()
@@ -75,7 +81,7 @@ async def scrap_getAllCategory():
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/product", tags=["Tokopedia"])
-# @cache_response(redis_client, "product")
+@cache_response(redis_client, "product")
 async def scrap_product(request: ScrapListProductRequest):
     try:
         result = getProductBycat(request.page, request.catId)
@@ -84,7 +90,7 @@ async def scrap_product(request: ScrapListProductRequest):
         raise HTTPException(status_code=500, detail=str(e))
     
 @router.post("/productByKeyword", tags=["Tokopedia"])
-# @cache_response(redis_client, "productByKeyword")
+@cache_response(redis_client, "productByKeyword")
 async def scrap_productByKeyword(request: ScrapListProductByKeywordRequest):
     try:
         result = getProductByKeyword(request.page, request.keyword)
@@ -94,7 +100,7 @@ async def scrap_productByKeyword(request: ScrapListProductByKeywordRequest):
     
     
 @router.post("/infoShop", tags=["Tokopedia"])
-# @cache_response(redis_client, "infoShop")
+@cache_response(redis_client, "infoShop")
 async def scrap_infoShop(request: ScrapListInfoShopRequest):
     try:
         result = getShopInfo(request.sellerURL)
@@ -103,10 +109,19 @@ async def scrap_infoShop(request: ScrapListInfoShopRequest):
         raise HTTPException(status_code=500, detail=str(e))
     
 @router.post("/productInfo", tags=["Tokopedia"])
-# @cache_response(redis_client, "productInfo")
+@cache_response(redis_client, "productInfo")
 async def scrap_productInfo(request: ScrapProductInfo):
     try:
         result = getProductInfo(request.productURL)
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    
+@router.post("/productByShop", tags=["Tokopedia"])
+@cache_response(redis_client, "productByShop")
+async def scrap_productByShop(request: ScrapProductByShop):
+    try:
+        result = getProductByShop(request.shopId, request.page)
         return result
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
