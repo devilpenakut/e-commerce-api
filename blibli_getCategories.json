@@ -1,0 +1,364 @@
+{
+  "code": 200,
+  "status": "OK",
+  "data": [
+    {
+      "id": "19774758-1e10-453e-a3fd-88580a535020",
+      "categoryCode": "TO-1000064",
+      "name": "Travel & Event",
+      "level": 1,
+      "alias": "trv",
+      "sequence": 1,
+      "image": "https://www.static-src.com/siva/asset//10_2023/tour-packages-2023.png",
+      "customUrl": "tour-travel",
+      "redirectUrl": "/c/1/tour-travel/TO-1000064/TO-1000064",
+      "backgroundImage": "https://www.static-src.com/siva/asset/09_2023/SITEMAP_18_TRV.jpg",
+      "subText": "Tour & Travel",
+      "banner": {
+        "url": "https://www.blibli.com/promosi/trv-hk-disneyland?appsWebview=true",
+        "alt": "HKDL",
+        "image": "https://www.static-src.com/siva/asset/10_2023/250x400_HKDL_Frozen_rev.jpg"
+      },
+      "parents": []
+    },
+    {
+      "id": "9bade43c-b204-4f8b-a89e-5ff1a52e583b",
+      "categoryCode": "TI-1000001",
+      "name": "Tiket & Voucher",
+      "level": 1,
+      "alias": "tkt",
+      "sequence": 5,
+      "image": "https://www.static-src.com/siva/asset//10_2023/tickets-vouchers-2023.png",
+      "customUrl": "tiket-voucher",
+      "redirectUrl": "/c/1/tiket-voucher/TI-1000001/TI-1000001",
+      "backgroundImage": "https://www.static-src.com/siva/asset/09_2023/SITEMAP_17_TIVO.jpg",
+      "subText": "Pertunjukan & Aktivitas, Tiket Seminar, ...",
+      "banner": {
+        "url": "https://www.blibli.com/promosi/fin-rdpt-bni-am-syariah?appsWebview=true&androidMinVersion=9.8.0&iosminversion=980",
+        "alt": "RDPT BNI AM Syariah/desktop/menubanner",
+        "image": "https://www.static-src.com/siva/asset/10_2023/231013-RDPT_BNI-300x600-C0.jpg"
+      },
+      "parents": []
+    },
+    {
+      "id": "68cc95aa-78b3-4db9-9235-24746ee3abf8",
+      "categoryCode": "54650",
+      "name": "Peralatan Elektronik",
+      "level": 1,
+      "alias": "ele",
+      "sequence": 10,
+      "image": "https://www.static-src.com/siva/asset//10_2023/electronic-2023.png",
+      "customUrl": "peralatan-elektronik",
+      "redirectUrl": "/c/1/peralatan-elektronik/54650/54650",
+      "backgroundImage": "https://www.static-src.com/siva/asset/09_2023/SITEMAP_20_PEL.jpg",
+      "subText": "Home Appliances, Televisi, Oven, ...",
+      "banner": {
+        "url": "https://www.blibli.com/promosi/tukar-tambah-bigproduct?appsWebview=true&androidMinVersion=9.8.0&iosminversion=980",
+        "alt": "Tukar Tambah Elektronik",
+        "image": "https://www.static-src.com/siva/asset/09_2023/navigator.jpg"
+      },
+      "parents": []
+    },
+    {
+      "id": "9cfbac88-df02-432e-a8c2-98e40d263021",
+      "categoryCode": "53704",
+      "name": "Otomotif",
+      "level": 1,
+      "alias": "oto",
+      "sequence": 15,
+      "image": "https://www.static-src.com/siva/asset//10_2023/automotive-2023.png",
+      "customUrl": "otomotif",
+      "redirectUrl": "/c/1/otomotif/53704/53704",
+      "backgroundImage": "https://www.static-src.com/siva/asset/09_2023/SITEMAP_15_OTO.jpg",
+      "subText": "Suku Cadang Mobil, Peralatan Kendaraan, ...",
+      "banner": {
+        "url": "https://www.blibli.com/promosi/oto-honda-official-store?appsWebview=true",
+        "alt": "",
+        "image": "https://www.static-src.com/siva/asset//12_2022/HPM-250x342.jpg"
+      },
+      "parents": []
+    },
+    {
+      "id": "04588d6d-6f19-4608-9cbc-b37a21ef630d",
+      "categoryCode": "OL-1000001",
+      "name": "Olahraga & Aktivitas Luar Ruang",
+      "level": 1,
+      "alias": "ora",
+      "sequence": 20,
+      "image": "https://www.static-src.com/siva/asset//10_2023/sport-2023.png",
+      "customUrl": "olahraga-aktivitas-luar-ruang",
+      "redirectUrl": "/c/1/olahraga-aktivitas-luar-ruang/OL-1000001/OL-1000001",
+      "backgroundImage": "https://www.static-src.com/siva/asset/09_2023/SITEMAP_16_SPO.jpg",
+      "subText": "Fitness, Lari, Badminton, ...",
+      "banner": {
+        "url": "https://www.blibli.com/promosi/spo-puma-halloween?appsWebview=true&androidMinVersion=9.3.0&iosminversion=930",
+        "alt": "",
+        "image": "https://www.static-src.com/siva/asset/10_2023/puma-halloween-menubanner.jpg"
+      },
+      "parents": []
+    },
+    {
+      "id": "1bcf83bc-2815-46f3-95ea-a5bdbcb30aa9",
+      "categoryCode": "MA-1000001",
+      "name": "Mainan, Buku & Stationery",
+      "level": 1,
+      "alias": "mvg",
+      "sequence": 25,
+      "image": "https://www.static-src.com/siva/asset//10_2023/hobbies-toys-2023.png",
+      "customUrl": "mainan-video-games",
+      "redirectUrl": "/c/1/mainan-video-games/MA-1000001/MA-1000001",
+      "backgroundImage": "https://www.static-src.com/siva/asset/09_2023/SITEMAP_08_MBS.jpg",
+      "subText": "Video Games, Games & Puzzles, ...",
+      "banner": {
+        "url": "https://www.blibli.com/promosi/mbs-halloween?appsWebview=true&androidMinVersion=10.1.0&iosminversion=1010",
+        "alt": "",
+        "image": "https://www.static-src.com/siva/asset/10_2023/Halloween-23_MenuBanner.jpg"
+      },
+      "parents": []
+    },
+    {
+      "id": "f2edb1be-5d1e-45c2-8d79-cf09df63f89a",
+      "categoryCode": "LO-1000058",
+      "name": "Logam Mulia & Perhiasan",
+      "level": 1,
+      "alias": "lom",
+      "sequence": 30,
+      "image": "https://www.static-src.com/siva/asset//10_2023/jewellery-2023.png",
+      "redirectUrl": "/c/1/logam-mulia-perhiasan/LO-1000058/LO-1000058",
+      "backgroundImage": "https://www.static-src.com/siva/asset/09_2023/SITEMAP_14_LMP.jpg",
+      "subText": "Logam Mulia & Perhiasan",
+      "banner": {
+        "url": "https://www.blibli.com/merchant/bligold-official-store/BLD-60049",
+        "alt": "Histeria",
+        "image": "https://www.static-src.com/siva/asset/10_2023/Menubanner_bligold-1010.jpg"
+      },
+      "parents": []
+    },
+    {
+      "id": "79b47f4b-aea7-4fc9-a257-64e43055fcd2",
+      "categoryCode": "53270",
+      "name": "Komputer & Gaming",
+      "level": 1,
+      "alias": "kom",
+      "sequence": 35,
+      "image": "https://www.static-src.com/siva/asset//10_2023/computers-laptops-2023.png",
+      "customUrl": "komputer-laptop",
+      "redirectUrl": "/c/1/komputer-laptop/53270/53270",
+      "backgroundImage": "https://www.static-src.com/siva/asset/09_2023/SITEMAP_13_KLA.jpg",
+      "subText": "Komputer, Printer, Scanner, ...",
+      "banner": {
+        "url": "https://www.blibli.com/promosi/kla-intel-core?appsWebview=true",
+        "alt": "Huawei Promo",
+        "image": "https://www.static-src.com/siva/asset//02_2023/Intel_SRT_Navigasi.jpg"
+      },
+      "parents": []
+    },
+    {
+      "id": "6e1eb822-6ae8-4ae1-a839-4b56b30e4ff5",
+      "categoryCode": "53203",
+      "name": "Kesehatan & Kecantikan",
+      "level": 1,
+      "alias": "kke",
+      "sequence": 40,
+      "image": "https://www.static-src.com/siva/asset//10_2023/health-beauty-2023.png",
+      "customUrl": "kesehatan-kecantikan",
+      "redirectUrl": "/c/1/kesehatan-kecantikan/53203/53203",
+      "backgroundImage": "https://www.static-src.com/siva/asset/09_2023/SITEMAP_12_KKE.jpg",
+      "subText": "Perawatan Wajah, Make Up, Peralatan Medis, ...",
+      "banner": {
+        "url": "https://www.blibli.com/promosi/kke-goapotik",
+        "alt": "goapotik",
+        "image": "https://www.static-src.com/siva/asset/10_2023/Goapotek-Menubanner.jpeg"
+      },
+      "parents": []
+    },
+    {
+      "id": "898545f9-3f6f-4304-884e-b7cc05241687",
+      "categoryCode": "53184",
+      "name": "Kamera",
+      "level": 1,
+      "alias": "kam",
+      "sequence": 45,
+      "image": "https://www.static-src.com/siva/asset//10_2023/camera-2023.png",
+      "customUrl": "kamera",
+      "redirectUrl": "/c/1/kamera/53184/53184",
+      "backgroundImage": "https://www.static-src.com/siva/asset/09_2023/SITEMAP_19_KAM.jpg",
+      "subText": "Kamera, Lensa, Aksesoris, ...",
+      "banner": {
+        "url": "https://www.blibli.com/promosi/kam-sony",
+        "alt": "",
+        "image": "https://www.static-src.com/siva/asset/10_2023/menu-banner-sony-payday.jpg"
+      },
+      "parents": []
+    },
+    {
+      "id": "37c35a3f-bfe9-4692-8db8-566621b21ab1",
+      "categoryCode": "JA-1000225",
+      "name": "Jam Tangan",
+      "level": 1,
+      "alias": "jat",
+      "sequence": 50,
+      "image": "https://www.static-src.com/siva/asset//10_2023/watches.png",
+      "redirectUrl": "/c/1/jam-tangan/JA-1000225/JA-1000225",
+      "backgroundImage": "https://www.static-src.com/siva/asset/09_2023/SITEMAP_11_JTN.jpg",
+      "subText": "Jam Tangan",
+      "banner": {
+        "url": "https://www.blibli.com/promosi/mix-logammulia-jam?appsWebview=true&androidMinVersion=9.8.0&iosminversion=980",
+        "alt": "",
+        "image": "https://www.static-src.com/siva/asset/10_2023/Menu-banner-GWS-LMPxJTG-Okt.jpg"
+      },
+      "parents": []
+    },
+    {
+      "id": "0b889ef5-429d-43f7-bb8e-06bf5120be8a",
+      "categoryCode": "55076",
+      "name": "Ibu & Anak",
+      "level": 1,
+      "alias": "ian",
+      "sequence": 60,
+      "image": "https://www.static-src.com/siva/asset//10_2023/mom-and-kids-2023.png",
+      "customUrl": "ibu-anak",
+      "redirectUrl": "/c/1/ibu-anak/55076/55076",
+      "backgroundImage": "https://www.static-src.com/siva/asset/09_2023/SITEMAP_10_IAN.jpg",
+      "subText": "Perlengkapan Bayi, Babysitter, ...",
+      "banner": {
+        "url": "https://www.blibli.com/c/1/ibu-anak/55076/55076",
+        "alt": "Kebutuhan Ibu & Anak",
+        "image": "https://www.static-src.com/siva/asset/07_2023/general-ian-jun23-menu.gif"
+      },
+      "parents": []
+    },
+    {
+      "id": "6552bc65-b241-45c6-acb8-7bc2e31cff49",
+      "categoryCode": "HO-1000001",
+      "name": "Home & Living",
+      "level": 1,
+      "alias": "hol",
+      "sequence": 65,
+      "image": "https://www.static-src.com/siva/asset//10_2023/home-living-2023.png",
+      "customUrl": "home-living",
+      "redirectUrl": "/c/1/home-living/HO-1000001/HO-1000001",
+      "backgroundImage": "https://www.static-src.com/siva/asset/09_2023/SITEMAP_07_HOM.jpg",
+      "subText": "Furniture, Perlengkapan Dapur, ...",
+      "banner": {
+        "url": "https://www.blibli.com/promosi/hom-inspirasi?appsWebview=true&androidMinVersion=10.1.0&iosminversion=1010",
+        "alt": "Menu Banner",
+        "image": "https://www.static-src.com/siva/asset/10_2023/BLI-INSPIRASI_CoffeeFair_Menu-banner-250x384-.jpg"
+      },
+      "parents": []
+    },
+    {
+      "id": "24597478-9f04-4561-a743-c9818018dd87",
+      "categoryCode": "54593",
+      "name": "Handphone & Tablet",
+      "level": 1,
+      "alias": "hpt",
+      "sequence": 70,
+      "image": "https://www.static-src.com/siva/asset//10_2023/hp-tablet-2023.png",
+      "customUrl": "handphone-tablet",
+      "redirectUrl": "/c/1/handphone-tablet/54593/54593",
+      "backgroundImage": "https://www.static-src.com/siva/asset/09_2023/SITEMAP_09_HTA.jpg",
+      "subText": "Tablet, Handphone, Aksesoris, ...",
+      "banner": {
+        "url": "https://www.blibli.com/promosi/blibli-tukar-tambah?appsWebview=true",
+        "alt": "Handphone & Tablet",
+        "image": "https://www.static-src.com/siva/asset//06_2020/navigasi-tuktam-june.png"
+      },
+      "parents": []
+    },
+    {
+      "id": "0e24ba0e-7c9a-4d38-a6da-6d33e519f372",
+      "categoryCode": "GA-1000036",
+      "name": "Galeri Indonesia",
+      "level": 1,
+      "alias": "gi",
+      "sequence": 75,
+      "image": "https://www.static-src.com/siva/asset//10_2023/indonesian-gallery-2023.png",
+      "customUrl": "galeri-indonesia",
+      "redirectUrl": "/c/1/galeri-indonesia/GA-1000036/GA-1000036",
+      "backgroundImage": "https://www.static-src.com/siva/asset/09_2023/SITEMAP_05_GIN.jpg",
+      "subText": "Seni & Kerajinan Indonesia, Fashion Moda, ...",
+      "banner": {
+        "url": "https://www.blibli.com/promosi/gin-bca-bangga-lokal-2023?appsWebview=true",
+        "alt": "valentin ala lokal",
+        "image": "https://www.static-src.com/siva/asset/05_2023/Menu-banner-BCA-bangga-lokal-2023-update.jpg"
+      },
+      "parents": []
+    },
+    {
+      "id": "9de505df-25f7-4a03-9a50-7a4d12bb0ccf",
+      "categoryCode": "54912",
+      "name": "Fashion Wanita",
+      "level": 1,
+      "alias": "fwn",
+      "sequence": 80,
+      "image": "https://www.static-src.com/siva/asset//10_2023/womenswear-2023.png",
+      "customUrl": "fashion-wanita",
+      "redirectUrl": "/c/1/fashion-wanita/54912/54912",
+      "backgroundImage": "https://www.static-src.com/siva/asset/09_2023/SITEMAP_04_FWA.jpg",
+      "subText": "Pakaian, Sepatu, Aksesoris, ...",
+      "banner": {
+        "url": "https://www.blibli.com/promosi/fwa-thepaperbunny?appsWebview=true&androidMinVersion=10.1.0&iosminversion=1010",
+        "alt": "FWA",
+        "image": "https://www.static-src.com/siva/asset/10_2023/MenuBanner_PaperBunny_rev.gif"
+      },
+      "parents": []
+    },
+    {
+      "id": "45a8ddff-8456-4aaa-b802-e05bdc3e7d31",
+      "categoryCode": "54817",
+      "name": "Fashion Pria",
+      "level": 1,
+      "alias": "fpr",
+      "sequence": 90,
+      "image": "https://www.static-src.com/siva/asset//10_2023/menswear-2023.png",
+      "customUrl": "fashion-pria-aksesoris",
+      "redirectUrl": "/c/1/fashion-pria-aksesoris/54817/54817",
+      "backgroundImage": "https://www.static-src.com/siva/asset/09_2023/SITEMAP_03_FPR.jpg",
+      "subText": "Atasan, Sepatu, Aksesoris, ...",
+      "banner": {
+        "url": "https://www.blibli.com/promosi/vans-disney?appsWebview=true&androidMinVersion=9.8.0&iosminversion=980",
+        "alt": "",
+        "image": "https://www.static-src.com/siva/asset/10_2023/vans-disney-menu-banner-400x800.jpg"
+      },
+      "parents": []
+    },
+    {
+      "id": "2a7a9f3f-b23e-4969-b0c9-84724c378bea",
+      "categoryCode": "FA-1000081",
+      "name": "Fashion Muslim",
+      "level": 1,
+      "alias": "fam",
+      "sequence": 95,
+      "image": "https://www.static-src.com/siva/asset//10_2023/muslim-clothes-2023.png",
+      "redirectUrl": "/c/1/fashion-muslim/FA-1000081/FA-1000081",
+      "backgroundImage": "https://www.static-src.com/siva/asset/09_2023/SITEMAP_02_FMU.jpg",
+      "subText": "Fashion Muslim",
+      "banner": {
+        "url": "https://www.blibli.com/promosi/fmu-heavenlights-hijab-voal-eksklusif?appsWebview=true&androidMinVersion=10.1.0&iosminversion=1010",
+        "alt": "HL Voal",
+        "image": "https://www.static-src.com/siva/asset/10_2023/MENU-BANNER_LAUNCHING-HEAVENLIGHTS-VOAL_400x800.jpg"
+      },
+      "parents": []
+    },
+    {
+      "id": "d137b99d-10ef-48cd-a668-aebb3c11b111",
+      "categoryCode": "53400",
+      "name": "Bliblimart",
+      "level": 1,
+      "alias": "mart",
+      "sequence": 100,
+      "image": "https://www.static-src.com/siva/asset//10_2023/blimart-2023.png",
+      "customUrl": "bliblimart",
+      "redirectUrl": "/c/1/bliblimart/53400/53400",
+      "backgroundImage": "https://www.static-src.com/siva/asset/09_2023/SITEMAP_01_BLM.jpg",
+      "subText": "Makanan, Minuman, Perawatan Kulit Tubuh, ...",
+      "banner": {
+        "url": "https://www.blibli.com/promosi/blm-tempo?appsWebview=true&androidMinVersion=10.1.0&iosminversion=1010",
+        "alt": "Bliblimart",
+        "image": "https://www.static-src.com/siva/asset/10_2023/tempo-BD-okt16-menu.jpg"
+      },
+      "parents": []
+    }
+  ]
+}

@@ -1,0 +1,1106 @@
+{
+  "code": 200,
+  "status": "OK",
+  "data": [
+    {
+      "id": "1265dc24-1d8d-42ba-822a-ad6304f5e302",
+      "categoryCode": "TI-1000102",
+      "name": "Event",
+      "level": 2,
+      "sequence": 5,
+      "redirectUrl": "/c/2/event/TI-1000102/TO-1000064",
+      "parentCategoryId": "19774758-1e10-453e-a3fd-88580a535020",
+      "parents": ["19774758-1e10-453e-a3fd-88580a535020"]
+    },
+    {
+      "id": "1212b8dc-f41a-462e-9225-4b3c0d340763",
+      "categoryCode": "WO-1000026",
+      "name": "Wonderful Indonesia",
+      "level": 2,
+      "sequence": 20,
+      "redirectUrl": "/c/2/wonderful-indonesia/WO-1000026/TO-1000064",
+      "parentCategoryId": "19774758-1e10-453e-a3fd-88580a535020",
+      "parents": ["19774758-1e10-453e-a3fd-88580a535020"]
+    },
+    {
+      "id": "a6c5a150-772f-41f8-b20f-8c0ce164694e",
+      "categoryCode": "TR-1000077",
+      "name": "Jasa Transportasi",
+      "level": 2,
+      "sequence": 26,
+      "redirectUrl": "/c/2/jasa-transportasi/TR-1000077/TO-1000064",
+      "parentCategoryId": "19774758-1e10-453e-a3fd-88580a535020",
+      "parents": ["19774758-1e10-453e-a3fd-88580a535020"]
+    },
+    {
+      "id": "fefc877c-d24d-4d10-85b6-a40863b762a7",
+      "categoryCode": "JE-1000058",
+      "name": "Jelajah Dunia",
+      "level": 2,
+      "sequence": 27,
+      "redirectUrl": "/c/2/jelajah-dunia/JE-1000058/TO-1000064",
+      "parentCategoryId": "19774758-1e10-453e-a3fd-88580a535020",
+      "parents": ["19774758-1e10-453e-a3fd-88580a535020"]
+    },
+    {
+      "id": "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+      "categoryCode": "TI-1000111",
+      "name": "Perlengkapan Perjalanan",
+      "level": 2,
+      "sequence": 29,
+      "redirectUrl": "/c/2/perlengkapan-perjalanan/TI-1000111/TO-1000064",
+      "parentCategoryId": "19774758-1e10-453e-a3fd-88580a535020",
+      "parents": ["19774758-1e10-453e-a3fd-88580a535020"]
+    },
+    {
+      "id": "5f0024dc-1a8b-496e-ae88-81573c5b6b79",
+      "categoryCode": "TI-1000110",
+      "name": "Tiket Atraksi & Taman Hiburan",
+      "level": 2,
+      "sequence": 35,
+      "redirectUrl": "/c/2/tiket-atraksi-taman-hiburan/TI-1000110/TO-1000064",
+      "parentCategoryId": "19774758-1e10-453e-a3fd-88580a535020",
+      "parents": ["19774758-1e10-453e-a3fd-88580a535020"]
+    },
+    {
+      "id": "2a3da46d-c377-4d3b-afcc-6b89e59b17ca",
+      "categoryCode": "RE-1000145",
+      "name": "Rental Transportasi Lainnya",
+      "level": 3,
+      "sequence": 0,
+      "redirectUrl": "/c/3/rental-transportasi-lainnya/RE-1000145/TO-1000064",
+      "parentCategoryId": "a6c5a150-772f-41f8-b20f-8c0ce164694e",
+      "parents": [
+        "a6c5a150-772f-41f8-b20f-8c0ce164694e",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "9c91b304-1e27-49da-a1fd-7de35df4ca83",
+      "categoryCode": "RE-1000139",
+      "name": "Rental Bus",
+      "level": 3,
+      "sequence": 1,
+      "redirectUrl": "/c/3/rental-bus/RE-1000139/TO-1000064",
+      "parentCategoryId": "a6c5a150-772f-41f8-b20f-8c0ce164694e",
+      "parents": [
+        "a6c5a150-772f-41f8-b20f-8c0ce164694e",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "65407139-5d32-4b95-985d-b744d20e25e1",
+      "categoryCode": "SH-1000045",
+      "name": "Shuttle Bus",
+      "level": 3,
+      "sequence": 2,
+      "redirectUrl": "/c/3/shuttle-bus/SH-1000045/TO-1000064",
+      "parentCategoryId": "a6c5a150-772f-41f8-b20f-8c0ce164694e",
+      "parents": [
+        "a6c5a150-772f-41f8-b20f-8c0ce164694e",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "261dd505-8a96-451f-b7b3-922e614958ca",
+      "categoryCode": "AM-1000033",
+      "name": "Amerika & Kanada",
+      "level": 3,
+      "sequence": 5,
+      "redirectUrl": "/c/3/amerika-kanada/AM-1000033/TO-1000064",
+      "parentCategoryId": "fefc877c-d24d-4d10-85b6-a40863b762a7",
+      "parents": [
+        "fefc877c-d24d-4d10-85b6-a40863b762a7",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "20fa343b-7cbd-4735-a386-6ad2cf7884f9",
+      "categoryCode": "TI-1000113",
+      "name": "Tiket Atraksi & Hiburan Luar Negeri",
+      "level": 3,
+      "sequence": 5,
+      "redirectUrl": "/c/3/tiket-atraksi-hiburan-luar-negeri/TI-1000113/TO-1000064",
+      "parentCategoryId": "5f0024dc-1a8b-496e-ae88-81573c5b6b79",
+      "parents": [
+        "5f0024dc-1a8b-496e-ae88-81573c5b6b79",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "a68d81b7-092d-4c80-a69d-1fe1defc249f",
+      "categoryCode": "TI-1000112",
+      "name": "Tiket Atraksi & Hiburan Domestik",
+      "level": 3,
+      "sequence": 10,
+      "redirectUrl": "/c/3/tiket-atraksi-hiburan-domestik/TI-1000112/TO-1000064",
+      "parentCategoryId": "5f0024dc-1a8b-496e-ae88-81573c5b6b79",
+      "parents": [
+        "5f0024dc-1a8b-496e-ae88-81573c5b6b79",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "74d5f5f6-8d65-46a1-a7d9-497ed348aa9b",
+      "categoryCode": "AS-1000045",
+      "name": "Asia & Afrika",
+      "level": 3,
+      "sequence": 10,
+      "redirectUrl": "/c/3/asia-afrika/AS-1000045/TO-1000064",
+      "parentCategoryId": "fefc877c-d24d-4d10-85b6-a40863b762a7",
+      "parents": [
+        "fefc877c-d24d-4d10-85b6-a40863b762a7",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "b06ade78-a04b-420d-adb3-0298e7a8e81f",
+      "categoryCode": "TI-1000145",
+      "name": "Tiket Event",
+      "level": 3,
+      "sequence": 10,
+      "redirectUrl": "/c/3/tiket-event/TI-1000145/TO-1000064",
+      "parentCategoryId": "1265dc24-1d8d-42ba-822a-ad6304f5e302",
+      "parents": [
+        "1265dc24-1d8d-42ba-822a-ad6304f5e302",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "0975d79e-e3df-4618-8b65-0df103ecf2bc",
+      "categoryCode": "VO-1000087",
+      "name": "Voucher Perjalanan",
+      "level": 3,
+      "sequence": 10,
+      "redirectUrl": "/c/3/voucher-perjalanan/VO-1000087/TO-1000064",
+      "parentCategoryId": "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+      "parents": [
+        "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "8e97f860-3045-4012-8484-8afbfbbb24d9",
+      "categoryCode": "BA-1000616",
+      "name": "Bali",
+      "level": 3,
+      "sequence": 15,
+      "redirectUrl": "/c/3/bali/BA-1000616/TO-1000064",
+      "parentCategoryId": "1212b8dc-f41a-462e-9225-4b3c0d340763",
+      "parents": [
+        "1212b8dc-f41a-462e-9225-4b3c0d340763",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "8439d8de-8ba0-4b46-a598-512c672561ba",
+      "categoryCode": "AU-1000061",
+      "name": "Australia & New Zealand",
+      "level": 3,
+      "sequence": 15,
+      "redirectUrl": "/c/3/australia-new-zealand/AU-1000061/TO-1000064",
+      "parentCategoryId": "fefc877c-d24d-4d10-85b6-a40863b762a7",
+      "parents": [
+        "fefc877c-d24d-4d10-85b6-a40863b762a7",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "29defa5e-11b1-4486-b186-b30a04841243",
+      "categoryCode": "TI-1000114",
+      "name": "Tiket Rail Pass",
+      "level": 3,
+      "sequence": 15,
+      "redirectUrl": "/c/3/tiket-rail-pass/TI-1000114/TO-1000064",
+      "parentCategoryId": "a6c5a150-772f-41f8-b20f-8c0ce164694e",
+      "parents": [
+        "a6c5a150-772f-41f8-b20f-8c0ce164694e",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "0cc00581-0af2-41d5-a7c1-2ca76c96adc3",
+      "categoryCode": "JA-1000258",
+      "name": "Jawa",
+      "level": 3,
+      "sequence": 20,
+      "redirectUrl": "/c/3/jawa/JA-1000258/TO-1000064",
+      "parentCategoryId": "1212b8dc-f41a-462e-9225-4b3c0d340763",
+      "parents": [
+        "1212b8dc-f41a-462e-9225-4b3c0d340763",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "7e911369-098d-492c-91d0-a290e2faa04c",
+      "categoryCode": "RE-1000106",
+      "name": "Rental Mobil",
+      "level": 3,
+      "sequence": 20,
+      "redirectUrl": "/c/3/rental-mobil/RE-1000106/TO-1000064",
+      "parentCategoryId": "a6c5a150-772f-41f8-b20f-8c0ce164694e",
+      "parents": [
+        "a6c5a150-772f-41f8-b20f-8c0ce164694e",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "a4388327-c3f2-4eee-aee0-20d2e200e24f",
+      "categoryCode": "ER-1000010",
+      "name": "Eropa & Inggris-Skotlandia-Wales-Irlandia Utara",
+      "level": 3,
+      "sequence": 20,
+      "redirectUrl": "/c/3/eropa-inggris-skotlandia-wales-irlandia-utara/ER-1000010/TO-1000064",
+      "parentCategoryId": "fefc877c-d24d-4d10-85b6-a40863b762a7",
+      "parents": [
+        "fefc877c-d24d-4d10-85b6-a40863b762a7",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "014aff76-61a4-43bb-ba3a-d53787ee1a36",
+      "categoryCode": "KA-1000331",
+      "name": "Kalimantan",
+      "level": 3,
+      "sequence": 25,
+      "redirectUrl": "/c/3/kalimantan/KA-1000331/TO-1000064",
+      "parentCategoryId": "1212b8dc-f41a-462e-9225-4b3c0d340763",
+      "parents": [
+        "1212b8dc-f41a-462e-9225-4b3c0d340763",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "61fc7c46-2fd7-4d4d-aaaa-8aa7cd32f80d",
+      "categoryCode": "TR-1000053",
+      "name": "Travel Assistant",
+      "level": 3,
+      "sequence": 25,
+      "redirectUrl": "/c/3/travel-assistant/TR-1000053/TO-1000064",
+      "parentCategoryId": "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+      "parents": [
+        "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "d918f458-1ba9-4787-af5c-e65317812205",
+      "categoryCode": "KE-1000309",
+      "name": "Kepulauan Maluku",
+      "level": 3,
+      "sequence": 30,
+      "redirectUrl": "/c/3/kepulauan-maluku/KE-1000309/TO-1000064",
+      "parentCategoryId": "1212b8dc-f41a-462e-9225-4b3c0d340763",
+      "parents": [
+        "1212b8dc-f41a-462e-9225-4b3c0d340763",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "f16c029b-d160-4afe-b5ff-0ea6e2c750de",
+      "categoryCode": "NU-1000035",
+      "name": "Nusa Tenggara",
+      "level": 3,
+      "sequence": 35,
+      "redirectUrl": "/c/3/nusa-tenggara/NU-1000035/TO-1000064",
+      "parentCategoryId": "1212b8dc-f41a-462e-9225-4b3c0d340763",
+      "parents": [
+        "1212b8dc-f41a-462e-9225-4b3c0d340763",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "2130773d-2a93-4f5e-8470-5eb1ba07635b",
+      "categoryCode": "SI-1000059",
+      "name": "Simcard & Wifi",
+      "level": 3,
+      "sequence": 39,
+      "redirectUrl": "/c/3/simcard-wifi/SI-1000059/TO-1000064",
+      "parentCategoryId": "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+      "parents": [
+        "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "cddf0576-bca4-456c-adaa-5dafe648767d",
+      "categoryCode": "PA-1000364",
+      "name": "Papua",
+      "level": 3,
+      "sequence": 40,
+      "redirectUrl": "/c/3/papua/PA-1000364/TO-1000064",
+      "parentCategoryId": "1212b8dc-f41a-462e-9225-4b3c0d340763",
+      "parents": [
+        "1212b8dc-f41a-462e-9225-4b3c0d340763",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "4c699516-e873-488e-abc6-5ea94e1156c9",
+      "categoryCode": "SU-1000177",
+      "name": "Sulawesi",
+      "level": 3,
+      "sequence": 45,
+      "redirectUrl": "/c/3/sulawesi/SU-1000177/TO-1000064",
+      "parentCategoryId": "1212b8dc-f41a-462e-9225-4b3c0d340763",
+      "parents": [
+        "1212b8dc-f41a-462e-9225-4b3c0d340763",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "cf6dd776-a555-4e57-a45b-8fa8b64af08a",
+      "categoryCode": "SU-1000180",
+      "name": "Sumatera",
+      "level": 3,
+      "sequence": 50,
+      "redirectUrl": "/c/3/sumatera/SU-1000180/TO-1000064",
+      "parentCategoryId": "1212b8dc-f41a-462e-9225-4b3c0d340763",
+      "parents": [
+        "1212b8dc-f41a-462e-9225-4b3c0d340763",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "8d2615f1-e3cc-4a57-952d-0df68880bb5e",
+      "categoryCode": "DO-1000035",
+      "name": "Dokumen Perjalanan",
+      "level": 3,
+      "sequence": 50,
+      "redirectUrl": "/c/3/dokumen-perjalanan/DO-1000035/TO-1000064",
+      "parentCategoryId": "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+      "parents": [
+        "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "1b8bfb99-e659-416b-89c3-642c73362885",
+      "categoryCode": "AI-1000027",
+      "name": "Airport Service",
+      "level": 4,
+      "sequence": 0,
+      "redirectUrl": "/c/4/airport-service/AI-1000027/TO-1000064",
+      "parentCategoryId": "61fc7c46-2fd7-4d4d-aaaa-8aa7cd32f80d",
+      "parents": [
+        "61fc7c46-2fd7-4d4d-aaaa-8aa7cd32f80d",
+        "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "ea8357c5-16a0-4139-bfd9-703a923fec25",
+      "categoryCode": "SI-1000061",
+      "name": "Singapore, Malaysia, Thailand",
+      "level": 4,
+      "sequence": 1,
+      "redirectUrl": "/c/4/singapore-malaysia-thailand/SI-1000061/TO-1000064",
+      "parentCategoryId": "2130773d-2a93-4f5e-8470-5eb1ba07635b",
+      "parents": [
+        "2130773d-2a93-4f5e-8470-5eb1ba07635b",
+        "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "6b97a057-2a07-404e-8066-da1a5a0762c1",
+      "categoryCode": "SO-1000047",
+      "name": "South Korea",
+      "level": 4,
+      "sequence": 2,
+      "redirectUrl": "/c/4/south-korea/SO-1000047/TO-1000064",
+      "parentCategoryId": "2130773d-2a93-4f5e-8470-5eb1ba07635b",
+      "parents": [
+        "2130773d-2a93-4f5e-8470-5eb1ba07635b",
+        "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "a31e4127-a514-43b1-941d-6156bb566f30",
+      "categoryCode": "JA-1000134",
+      "name": "Japan",
+      "level": 4,
+      "sequence": 3,
+      "redirectUrl": "/c/4/japan/JA-1000134/TO-1000064",
+      "parentCategoryId": "2130773d-2a93-4f5e-8470-5eb1ba07635b",
+      "parents": [
+        "2130773d-2a93-4f5e-8470-5eb1ba07635b",
+        "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "594dcf64-4a86-460d-aede-af094348158c",
+      "categoryCode": "AU-1000048",
+      "name": "Australia & New Zealand",
+      "level": 4,
+      "sequence": 4,
+      "redirectUrl": "/c/4/australia-new-zealand/AU-1000048/TO-1000064",
+      "parentCategoryId": "2130773d-2a93-4f5e-8470-5eb1ba07635b",
+      "parents": [
+        "2130773d-2a93-4f5e-8470-5eb1ba07635b",
+        "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "0c080f52-0ca7-40d7-9943-2a0cc4ab0f91",
+      "categoryCode": "PR-1000175",
+      "name": "Provinsi Lainnya",
+      "level": 4,
+      "sequence": 5,
+      "redirectUrl": "/c/4/provinsi-lainnya/PR-1000175/TO-1000064",
+      "parentCategoryId": "4c699516-e873-488e-abc6-5ea94e1156c9",
+      "parents": [
+        "4c699516-e873-488e-abc6-5ea94e1156c9",
+        "1212b8dc-f41a-462e-9225-4b3c0d340763",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "cecd201e-7a81-442b-8ef5-6405bca10663",
+      "categoryCode": "WI-1000025",
+      "name": "Wisata Indoor & Outdoor Luar Negeri",
+      "level": 4,
+      "sequence": 5,
+      "redirectUrl": "/c/4/wisata-indoor-outdoor-luar-negeri/WI-1000025/TO-1000064",
+      "parentCategoryId": "20fa343b-7cbd-4735-a386-6ad2cf7884f9",
+      "parents": [
+        "20fa343b-7cbd-4735-a386-6ad2cf7884f9",
+        "5f0024dc-1a8b-496e-ae88-81573c5b6b79",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "da79814c-6655-41e8-b1b7-2cfeddd9af7a",
+      "categoryCode": "BA-1000617",
+      "name": "Banten, DKI Jakarta & Kepulauan Seribu",
+      "level": 4,
+      "sequence": 5,
+      "redirectUrl": "/c/4/banten-dki-jakarta-kepulauan-seribu/BA-1000617/TO-1000064",
+      "parentCategoryId": "0cc00581-0af2-41d5-a7c1-2ca76c96adc3",
+      "parents": [
+        "0cc00581-0af2-41d5-a7c1-2ca76c96adc3",
+        "1212b8dc-f41a-462e-9225-4b3c0d340763",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "6b8ea31b-e804-4e55-9f8e-1500d152c558",
+      "categoryCode": "US-1000008",
+      "name": "USA & Canada",
+      "level": 4,
+      "sequence": 5,
+      "redirectUrl": "/c/4/usa-canada/US-1000008/TO-1000064",
+      "parentCategoryId": "2130773d-2a93-4f5e-8470-5eb1ba07635b",
+      "parents": [
+        "2130773d-2a93-4f5e-8470-5eb1ba07635b",
+        "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "237a03e9-5ef4-4a02-be56-c82505f11c41",
+      "categoryCode": "AS-1000046",
+      "name": "Asia Tenggara",
+      "level": 4,
+      "sequence": 5,
+      "redirectUrl": "/c/4/asia-tenggara/AS-1000046/TO-1000064",
+      "parentCategoryId": "74d5f5f6-8d65-46a1-a7d9-497ed348aa9b",
+      "parents": [
+        "74d5f5f6-8d65-46a1-a7d9-497ed348aa9b",
+        "fefc877c-d24d-4d10-85b6-a40863b762a7",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "01dae120-b23e-49cf-aa00-4683fa2a15df",
+      "categoryCode": "KA-1000332",
+      "name": "Kalimantan Timur",
+      "level": 4,
+      "sequence": 5,
+      "redirectUrl": "/c/4/kalimantan-timur/KA-1000332/TO-1000064",
+      "parentCategoryId": "014aff76-61a4-43bb-ba3a-d53787ee1a36",
+      "parents": [
+        "014aff76-61a4-43bb-ba3a-d53787ee1a36",
+        "1212b8dc-f41a-462e-9225-4b3c0d340763",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "7d991490-fe00-41a4-bfb9-2af9b0192f8b",
+      "categoryCode": "MU-1000075",
+      "name": "Musik",
+      "level": 4,
+      "sequence": 5,
+      "redirectUrl": "/c/4/musik/MU-1000075/TO-1000064",
+      "parentCategoryId": "b06ade78-a04b-420d-adb3-0298e7a8e81f",
+      "parents": [
+        "b06ade78-a04b-420d-adb3-0298e7a8e81f",
+        "1265dc24-1d8d-42ba-822a-ad6304f5e302",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "d0d2a639-c225-457a-bd3a-03c61ec58c96",
+      "categoryCode": "VO-1000060",
+      "name": "Voucher Hotel",
+      "level": 4,
+      "sequence": 5,
+      "redirectUrl": "/c/4/voucher-hotel/VO-1000060/TO-1000064",
+      "parentCategoryId": "0975d79e-e3df-4618-8b65-0df103ecf2bc",
+      "parents": [
+        "0975d79e-e3df-4618-8b65-0df103ecf2bc",
+        "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "20713f93-1d89-48ba-9929-6be1d50a7380",
+      "categoryCode": "AC-1000082",
+      "name": "Aceh & Provinsi Lainnya",
+      "level": 4,
+      "sequence": 5,
+      "redirectUrl": "/c/4/aceh-provinsi-lainnya/AC-1000082/TO-1000064",
+      "parentCategoryId": "cf6dd776-a555-4e57-a45b-8fa8b64af08a",
+      "parents": [
+        "cf6dd776-a555-4e57-a45b-8fa8b64af08a",
+        "1212b8dc-f41a-462e-9225-4b3c0d340763",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "2f6d8fb2-b70d-4aec-a929-a3fd5cdfdecf",
+      "categoryCode": "NU-1000036",
+      "name": "Nusa Tenggara Timur",
+      "level": 4,
+      "sequence": 5,
+      "redirectUrl": "/c/4/nusa-tenggara-timur/NU-1000036/TO-1000064",
+      "parentCategoryId": "f16c029b-d160-4afe-b5ff-0ea6e2c750de",
+      "parents": [
+        "f16c029b-d160-4afe-b5ff-0ea6e2c750de",
+        "1212b8dc-f41a-462e-9225-4b3c0d340763",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "47227571-1b64-4c25-8ad7-f329415a3366",
+      "categoryCode": "WI-1000024",
+      "name": "Wisata Indoor & Outdoor Indonesia",
+      "level": 4,
+      "sequence": 5,
+      "redirectUrl": "/c/4/wisata-indoor-outdoor-indonesia/WI-1000024/TO-1000064",
+      "parentCategoryId": "a68d81b7-092d-4c80-a69d-1fe1defc249f",
+      "parents": [
+        "a68d81b7-092d-4c80-a69d-1fe1defc249f",
+        "5f0024dc-1a8b-496e-ae88-81573c5b6b79",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "eb10246a-bea3-4cab-ab94-5549602a655b",
+      "categoryCode": "ER-1000011",
+      "name": "Eropa Barat",
+      "level": 4,
+      "sequence": 5,
+      "redirectUrl": "/c/4/eropa-barat/ER-1000011/TO-1000064",
+      "parentCategoryId": "a4388327-c3f2-4eee-aee0-20d2e200e24f",
+      "parents": [
+        "a4388327-c3f2-4eee-aee0-20d2e200e24f",
+        "fefc877c-d24d-4d10-85b6-a40863b762a7",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "81c3e234-5c3c-4244-a19d-532d79b8090e",
+      "categoryCode": "SA-1000113",
+      "name": "Saudi Arabia",
+      "level": 4,
+      "sequence": 6,
+      "redirectUrl": "/c/4/saudi-arabia/SA-1000113/TO-1000064",
+      "parentCategoryId": "2130773d-2a93-4f5e-8470-5eb1ba07635b",
+      "parents": [
+        "2130773d-2a93-4f5e-8470-5eb1ba07635b",
+        "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "c7c586c9-0f99-4f9d-9a6a-a2a4139dcd9f",
+      "categoryCode": "EU-1000004",
+      "name": "Europe",
+      "level": 4,
+      "sequence": 7,
+      "redirectUrl": "/c/4/europe/EU-1000004/TO-1000064",
+      "parentCategoryId": "2130773d-2a93-4f5e-8470-5eb1ba07635b",
+      "parents": [
+        "2130773d-2a93-4f5e-8470-5eb1ba07635b",
+        "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "634a9c66-c510-42b2-98d3-e13a6fd4a31e",
+      "categoryCode": "HO-1000049",
+      "name": "Hongkong, Macau, China, Taiwan",
+      "level": 4,
+      "sequence": 8,
+      "redirectUrl": "/c/4/hongkong-macau-china-taiwan/HO-1000049/TO-1000064",
+      "parentCategoryId": "2130773d-2a93-4f5e-8470-5eb1ba07635b",
+      "parents": [
+        "2130773d-2a93-4f5e-8470-5eb1ba07635b",
+        "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "856cab03-daff-4c01-9906-5a6be22fa686",
+      "categoryCode": "MO-1000071",
+      "name": "Modem Wifi",
+      "level": 4,
+      "sequence": 9,
+      "redirectUrl": "/c/4/modem-wifi/MO-1000071/TO-1000064",
+      "parentCategoryId": "2130773d-2a93-4f5e-8470-5eb1ba07635b",
+      "parents": [
+        "2130773d-2a93-4f5e-8470-5eb1ba07635b",
+        "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "36582491-2fc9-441b-831f-0fb0539c9635",
+      "categoryCode": "HO-1000080",
+      "name": "Hongkong, Macau, China, Taiwan",
+      "level": 4,
+      "sequence": 10,
+      "redirectUrl": "/c/4/hongkong-macau-china-taiwan/HO-1000080/TO-1000064",
+      "parentCategoryId": "74d5f5f6-8d65-46a1-a7d9-497ed348aa9b",
+      "parents": [
+        "74d5f5f6-8d65-46a1-a7d9-497ed348aa9b",
+        "fefc877c-d24d-4d10-85b6-a40863b762a7",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "1d2b7c34-8477-4a85-96a8-b26b0bc72111",
+      "categoryCode": "ER-1000012",
+      "name": "Eropa Timur",
+      "level": 4,
+      "sequence": 10,
+      "redirectUrl": "/c/4/eropa-timur/ER-1000012/TO-1000064",
+      "parentCategoryId": "a4388327-c3f2-4eee-aee0-20d2e200e24f",
+      "parents": [
+        "a4388327-c3f2-4eee-aee0-20d2e200e24f",
+        "fefc877c-d24d-4d10-85b6-a40863b762a7",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "2f85846a-b6d5-44eb-946e-5a0856fc0a53",
+      "categoryCode": "NO-1000026",
+      "name": "Non-Musik",
+      "level": 4,
+      "sequence": 10,
+      "redirectUrl": "/c/4/non-musik/NO-1000026/TO-1000064",
+      "parentCategoryId": "b06ade78-a04b-420d-adb3-0298e7a8e81f",
+      "parents": [
+        "b06ade78-a04b-420d-adb3-0298e7a8e81f",
+        "1265dc24-1d8d-42ba-822a-ad6304f5e302",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "c857947e-c5fb-4bd0-a968-f846ac205bc8",
+      "categoryCode": "VO-1000062",
+      "name": "Voucher Lainnya",
+      "level": 4,
+      "sequence": 10,
+      "redirectUrl": "/c/4/voucher-lainnya/VO-1000062/TO-1000064",
+      "parentCategoryId": "0975d79e-e3df-4618-8b65-0df103ecf2bc",
+      "parents": [
+        "0975d79e-e3df-4618-8b65-0df103ecf2bc",
+        "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "1c466c54-9526-43da-b5f5-49f4cb758f77",
+      "categoryCode": "VI-1000037",
+      "name": "Vietnam & Kamboja",
+      "level": 4,
+      "sequence": 10,
+      "redirectUrl": "/c/4/vietnam-kamboja/VI-1000037/TO-1000064",
+      "parentCategoryId": "2130773d-2a93-4f5e-8470-5eb1ba07635b",
+      "parents": [
+        "2130773d-2a93-4f5e-8470-5eb1ba07635b",
+        "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "e1257e35-22f5-4f9b-97e9-d62f4d093504",
+      "categoryCode": "SU-1000178",
+      "name": "Sulawesi Selatan",
+      "level": 4,
+      "sequence": 10,
+      "redirectUrl": "/c/4/sulawesi-selatan/SU-1000178/TO-1000064",
+      "parentCategoryId": "4c699516-e873-488e-abc6-5ea94e1156c9",
+      "parents": [
+        "4c699516-e873-488e-abc6-5ea94e1156c9",
+        "1212b8dc-f41a-462e-9225-4b3c0d340763",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "ea54857b-1894-42fd-a240-a4e15777432c",
+      "categoryCode": "BA-1000618",
+      "name": "Bangka-Belitung",
+      "level": 4,
+      "sequence": 10,
+      "redirectUrl": "/c/4/bangka-belitung/BA-1000618/TO-1000064",
+      "parentCategoryId": "cf6dd776-a555-4e57-a45b-8fa8b64af08a",
+      "parents": [
+        "cf6dd776-a555-4e57-a45b-8fa8b64af08a",
+        "1212b8dc-f41a-462e-9225-4b3c0d340763",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "1ba778b9-552f-43ca-aa7c-2d8aceeb0451",
+      "categoryCode": "NU-1000037",
+      "name": "Nusa Tenggara Barat",
+      "level": 4,
+      "sequence": 10,
+      "redirectUrl": "/c/4/nusa-tenggara-barat/NU-1000037/TO-1000064",
+      "parentCategoryId": "f16c029b-d160-4afe-b5ff-0ea6e2c750de",
+      "parents": [
+        "f16c029b-d160-4afe-b5ff-0ea6e2c750de",
+        "1212b8dc-f41a-462e-9225-4b3c0d340763",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "5fe702fb-0cbc-4265-885e-ff25d89c974e",
+      "categoryCode": "PR-1000174",
+      "name": "Provinsi Lainnya",
+      "level": 4,
+      "sequence": 10,
+      "redirectUrl": "/c/4/provinsi-lainnya/PR-1000174/TO-1000064",
+      "parentCategoryId": "014aff76-61a4-43bb-ba3a-d53787ee1a36",
+      "parents": [
+        "014aff76-61a4-43bb-ba3a-d53787ee1a36",
+        "1212b8dc-f41a-462e-9225-4b3c0d340763",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "d04efe74-b698-4e68-8c86-3c886f1dc915",
+      "categoryCode": "PE-1000750",
+      "name": "Pembuatan Visa",
+      "level": 4,
+      "sequence": 10,
+      "redirectUrl": "/c/4/pembuatan-visa/PE-1000750/TO-1000064",
+      "parentCategoryId": "8d2615f1-e3cc-4a57-952d-0df68880bb5e",
+      "parents": [
+        "8d2615f1-e3cc-4a57-952d-0df68880bb5e",
+        "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "7349713f-0644-44c6-9fd6-124e5efff20f",
+      "categoryCode": "WA-1000049",
+      "name": "Waterpark Luar Negeri",
+      "level": 4,
+      "sequence": 10,
+      "redirectUrl": "/c/4/waterpark-luar-negeri/WA-1000049/TO-1000064",
+      "parentCategoryId": "20fa343b-7cbd-4735-a386-6ad2cf7884f9",
+      "parents": [
+        "20fa343b-7cbd-4735-a386-6ad2cf7884f9",
+        "5f0024dc-1a8b-496e-ae88-81573c5b6b79",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "11094a35-b9e5-436a-9412-a410e51ea116",
+      "categoryCode": "WA-1000048",
+      "name": "Waterpark Indonesia",
+      "level": 4,
+      "sequence": 10,
+      "redirectUrl": "/c/4/waterpark-indonesia/WA-1000048/TO-1000064",
+      "parentCategoryId": "a68d81b7-092d-4c80-a69d-1fe1defc249f",
+      "parents": [
+        "a68d81b7-092d-4c80-a69d-1fe1defc249f",
+        "5f0024dc-1a8b-496e-ae88-81573c5b6b79",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "0a343d69-9047-402e-a3d4-6bc1d2c2f93d",
+      "categoryCode": "JA-1000259",
+      "name": "Jawa Barat",
+      "level": 4,
+      "sequence": 10,
+      "redirectUrl": "/c/4/jawa-barat/JA-1000259/TO-1000064",
+      "parentCategoryId": "0cc00581-0af2-41d5-a7c1-2ca76c96adc3",
+      "parents": [
+        "0cc00581-0af2-41d5-a7c1-2ca76c96adc3",
+        "1212b8dc-f41a-462e-9225-4b3c0d340763",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "591de18f-94e7-4761-abcb-67d6e4d6b1e2",
+      "categoryCode": "NE-1000021",
+      "name": "Negara Lainnya",
+      "level": 4,
+      "sequence": 11,
+      "redirectUrl": "/c/4/negara-lainnya/NE-1000021/TO-1000064",
+      "parentCategoryId": "2130773d-2a93-4f5e-8470-5eb1ba07635b",
+      "parents": [
+        "2130773d-2a93-4f5e-8470-5eb1ba07635b",
+        "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "e24bcfae-cd35-4c78-8a38-7540fbae41ab",
+      "categoryCode": "LA-1000156",
+      "name": "Lampung",
+      "level": 4,
+      "sequence": 15,
+      "redirectUrl": "/c/4/lampung/LA-1000156/TO-1000064",
+      "parentCategoryId": "cf6dd776-a555-4e57-a45b-8fa8b64af08a",
+      "parents": [
+        "cf6dd776-a555-4e57-a45b-8fa8b64af08a",
+        "1212b8dc-f41a-462e-9225-4b3c0d340763",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "caf530fe-ae49-4835-9caf-c20dba95c3b8",
+      "categoryCode": "JA-1000260",
+      "name": "Jawa Tengah & Yogyakarta",
+      "level": 4,
+      "sequence": 15,
+      "redirectUrl": "/c/4/jawa-tengah-yogyakarta/JA-1000260/TO-1000064",
+      "parentCategoryId": "0cc00581-0af2-41d5-a7c1-2ca76c96adc3",
+      "parents": [
+        "0cc00581-0af2-41d5-a7c1-2ca76c96adc3",
+        "1212b8dc-f41a-462e-9225-4b3c0d340763",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "f8d3763b-1d0c-4af0-9427-fa5311753075",
+      "categoryCode": "KU-1000136",
+      "name": "Voucher Tiket Pesawat",
+      "level": 4,
+      "sequence": 15,
+      "redirectUrl": "/c/4/voucher-tiket-pesawat/KU-1000136/TO-1000064",
+      "parentCategoryId": "0975d79e-e3df-4618-8b65-0df103ecf2bc",
+      "parents": [
+        "0975d79e-e3df-4618-8b65-0df103ecf2bc",
+        "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "2092eac6-b05a-4cd1-95f0-895077e8e94d",
+      "categoryCode": "AS-1000031",
+      "name": "Asuransi Perjalanan",
+      "level": 4,
+      "sequence": 15,
+      "redirectUrl": "/c/4/asuransi-perjalanan/AS-1000031/TO-1000064",
+      "parentCategoryId": "8d2615f1-e3cc-4a57-952d-0df68880bb5e",
+      "parents": [
+        "8d2615f1-e3cc-4a57-952d-0df68880bb5e",
+        "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "b54de23b-c90a-4b27-b40d-b3e786e04213",
+      "categoryCode": "IN-1000091",
+      "name": "Inggris-Skotlandia-Wales-Irlandia Utara",
+      "level": 4,
+      "sequence": 15,
+      "redirectUrl": "/c/4/inggris-skotlandia-wales-irlandia-utara/IN-1000091/TO-1000064",
+      "parentCategoryId": "a4388327-c3f2-4eee-aee0-20d2e200e24f",
+      "parents": [
+        "a4388327-c3f2-4eee-aee0-20d2e200e24f",
+        "fefc877c-d24d-4d10-85b6-a40863b762a7",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "46c1c123-d11b-4ffe-bed6-24d41318270d",
+      "categoryCode": "SU-1000179",
+      "name": "Sulawesi Utara",
+      "level": 4,
+      "sequence": 15,
+      "redirectUrl": "/c/4/sulawesi-utara/SU-1000179/TO-1000064",
+      "parentCategoryId": "4c699516-e873-488e-abc6-5ea94e1156c9",
+      "parents": [
+        "4c699516-e873-488e-abc6-5ea94e1156c9",
+        "1212b8dc-f41a-462e-9225-4b3c0d340763",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "ce46f8d3-f6ea-46d9-8968-8a271b81ef31",
+      "categoryCode": "TA-1000124",
+      "name": "Taman Hiburan Luar Negeri",
+      "level": 4,
+      "sequence": 15,
+      "redirectUrl": "/c/4/taman-hiburan-luar-negeri/TA-1000124/TO-1000064",
+      "parentCategoryId": "20fa343b-7cbd-4735-a386-6ad2cf7884f9",
+      "parents": [
+        "20fa343b-7cbd-4735-a386-6ad2cf7884f9",
+        "5f0024dc-1a8b-496e-ae88-81573c5b6b79",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "87b51534-1d8b-49f1-9fd8-7d9b5baaa73b",
+      "categoryCode": "TA-1000123",
+      "name": "Taman Hiburan Indonesia",
+      "level": 4,
+      "sequence": 15,
+      "redirectUrl": "/c/4/taman-hiburan-indonesia/TA-1000123/TO-1000064",
+      "parentCategoryId": "a68d81b7-092d-4c80-a69d-1fe1defc249f",
+      "parents": [
+        "a68d81b7-092d-4c80-a69d-1fe1defc249f",
+        "5f0024dc-1a8b-496e-ae88-81573c5b6b79",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "d5f46b3d-5cec-4860-9a12-a05698f2ea90",
+      "categoryCode": "JE-1000059",
+      "name": "Jepang",
+      "level": 4,
+      "sequence": 15,
+      "redirectUrl": "/c/4/jepang/JE-1000059/TO-1000064",
+      "parentCategoryId": "74d5f5f6-8d65-46a1-a7d9-497ed348aa9b",
+      "parents": [
+        "74d5f5f6-8d65-46a1-a7d9-497ed348aa9b",
+        "fefc877c-d24d-4d10-85b6-a40863b762a7",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "cc4b9843-2ee8-4f0c-b503-81b51ef706fd",
+      "categoryCode": "VO-1000061",
+      "name": "Voucher Travel",
+      "level": 4,
+      "sequence": 20,
+      "redirectUrl": "/c/4/voucher-travel/VO-1000061/TO-1000064",
+      "parentCategoryId": "0975d79e-e3df-4618-8b65-0df103ecf2bc",
+      "parents": [
+        "0975d79e-e3df-4618-8b65-0df103ecf2bc",
+        "4ed9eb75-487b-46ef-9166-3ace31e6851a",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "5885c670-580e-4562-a109-714b996b275c",
+      "categoryCode": "HI-1000072",
+      "name": "Hiburan Indonesia Lainnya",
+      "level": 4,
+      "sequence": 20,
+      "redirectUrl": "/c/4/hiburan-indonesia-lainnya/HI-1000072/TO-1000064",
+      "parentCategoryId": "a68d81b7-092d-4c80-a69d-1fe1defc249f",
+      "parents": [
+        "a68d81b7-092d-4c80-a69d-1fe1defc249f",
+        "5f0024dc-1a8b-496e-ae88-81573c5b6b79",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "07080ef0-a7dd-4ee3-a7c5-fc1024d68e78",
+      "categoryCode": "JA-1000261",
+      "name": "Jawa Timur",
+      "level": 4,
+      "sequence": 20,
+      "redirectUrl": "/c/4/jawa-timur/JA-1000261/TO-1000064",
+      "parentCategoryId": "0cc00581-0af2-41d5-a7c1-2ca76c96adc3",
+      "parents": [
+        "0cc00581-0af2-41d5-a7c1-2ca76c96adc3",
+        "1212b8dc-f41a-462e-9225-4b3c0d340763",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "0bac201d-d3cf-4ca9-8946-8f9a551366c3",
+      "categoryCode": "SU-1000181",
+      "name": "Sumatera Utara",
+      "level": 4,
+      "sequence": 20,
+      "redirectUrl": "/c/4/sumatera-utara/SU-1000181/TO-1000064",
+      "parentCategoryId": "cf6dd776-a555-4e57-a45b-8fa8b64af08a",
+      "parents": [
+        "cf6dd776-a555-4e57-a45b-8fa8b64af08a",
+        "1212b8dc-f41a-462e-9225-4b3c0d340763",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "8bec4f94-67ee-4455-b42b-0bbe6fbbe25c",
+      "categoryCode": "TU-1000036",
+      "name": "Turki & Negara Lainnya",
+      "level": 4,
+      "sequence": 20,
+      "redirectUrl": "/c/4/turki-negara-lainnya/TU-1000036/TO-1000064",
+      "parentCategoryId": "a4388327-c3f2-4eee-aee0-20d2e200e24f",
+      "parents": [
+        "a4388327-c3f2-4eee-aee0-20d2e200e24f",
+        "fefc877c-d24d-4d10-85b6-a40863b762a7",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "fd1f4b84-b3c4-4842-8150-cfdbc69b6039",
+      "categoryCode": "KO-1000207",
+      "name": "Korea",
+      "level": 4,
+      "sequence": 20,
+      "redirectUrl": "/c/4/korea/KO-1000207/TO-1000064",
+      "parentCategoryId": "74d5f5f6-8d65-46a1-a7d9-497ed348aa9b",
+      "parents": [
+        "74d5f5f6-8d65-46a1-a7d9-497ed348aa9b",
+        "fefc877c-d24d-4d10-85b6-a40863b762a7",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "e87223c7-9752-4845-a01b-892ecba476cb",
+      "categoryCode": "HI-1000073",
+      "name": "Hiburan Luar Negeri Lainnya",
+      "level": 4,
+      "sequence": 25,
+      "redirectUrl": "/c/4/hiburan-luar-negeri-lainnya/HI-1000073/TO-1000064",
+      "parentCategoryId": "20fa343b-7cbd-4735-a386-6ad2cf7884f9",
+      "parents": [
+        "20fa343b-7cbd-4735-a386-6ad2cf7884f9",
+        "5f0024dc-1a8b-496e-ae88-81573c5b6b79",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    },
+    {
+      "id": "88fdc006-c930-4214-bc52-b81d5993c359",
+      "categoryCode": "ME-1000207",
+      "name": "Mediteranian & Negara Lainnya",
+      "level": 4,
+      "sequence": 25,
+      "redirectUrl": "/c/4/mediteranian-negara-lainnya/ME-1000207/TO-1000064",
+      "parentCategoryId": "74d5f5f6-8d65-46a1-a7d9-497ed348aa9b",
+      "parents": [
+        "74d5f5f6-8d65-46a1-a7d9-497ed348aa9b",
+        "fefc877c-d24d-4d10-85b6-a40863b762a7",
+        "19774758-1e10-453e-a3fd-88580a535020"
+      ]
+    }
+  ]
+}
