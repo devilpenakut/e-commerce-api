@@ -74,5 +74,3 @@ def getProductInfo(productURL):
   response = requests.request("POST", url, headers=headers, data=payload, proxies= proxies)
   
   return response.json()
-
-getProductInfo("https://www.tokopedia.com/bajukoki/wooden-cutlery-10-5cm-tanpa-cover-sendok-garpu-kayu-spork-1pc?extParam=src%3Dshop%26whid%3D1573699")

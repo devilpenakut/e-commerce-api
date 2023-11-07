@@ -37,11 +37,10 @@ class getListSellerRequest(BaseModel):
     page: int = 1
     
 class getDetailProductRequest(BaseModel):
-    FormatedID: str = "ps--YAP-70070-00040"
-    itemSku: str = "YAP-70070-00040-00001"
+    URL : str = 'https://www.blibli.com/p/setelan-baju-anak-laki-laki-harian-robotic-0-8-tahun/ps--PRA-70043-00162?ds=PRA-70043-00162-00001&source=SEARCH&sid=85ee790ceaabfe94&cnc=false&pickupPointCode=PP-3189251&pid1=PRA-70043-00162&tag=trending'
     
 class getInfoShopRequest(BaseModel):
-    merchantCode: str = "UFG-70003"
+    namaToko: str = "Blibli - Apple Authorised Reseller"
 
 def cache_response(redis_client, redis_key_prefix):
     def decorator(func):
@@ -64,7 +63,7 @@ def cache_response(redis_client, redis_key_prefix):
     return decorator
 
 @router.get("/getCategoryLevel1", tags=["BliBli"])
-@cache_response(redis_client, "getCategoryLevel1")
+# @cache_response(redis_client, "getCategoryLevel1")
 async def getCategoryLevel1():
     try:
         result = getLevel1()
@@ -74,7 +73,7 @@ async def getCategoryLevel1():
     
 
 @router.post("/getCategoryChildren", tags=["BliBli"])
-@cache_response(redis_client, "getCategoryChildren")
+# @cache_response(redis_client, "getCategoryChildren")
 async def getCategoryLevel2(request: getLevel2Request):
     try:
         result = getLevel2(request.level1_id)
@@ -83,7 +82,7 @@ async def getCategoryLevel2(request: getLevel2Request):
         raise HTTPException(status_code=400, detail=str(e))
     
 @router.post("/getListProductByCat", tags=["BliBli"])
-@cache_response(redis_client, "getListProductByCat")
+# @cache_response(redis_client, "getListProductByCat")
 async def getListProductByCat(request: getListProductByCatRequest):
     try:
         result = getLisProductByCat(request.category_code, request.page)
@@ -92,7 +91,7 @@ async def getListProductByCat(request: getListProductByCatRequest):
         raise HTTPException(status_code=400, detail=str(e))
     
 @router.post("/getListProductByKeyword", tags=["BliBli"])
-@cache_response(redis_client, "getListProductByKeyword")
+# @cache_response(redis_client, "getListProductByKeyword")
 async def getListProductByKeyword(request: getListProductByKeywordRequest):
     try:
         result = getListProductByKey(request.category_code, request.page)
@@ -101,7 +100,7 @@ async def getListProductByKeyword(request: getListProductByKeywordRequest):
         raise HTTPException(status_code=400, detail=str(e))
     
 @router.post("/getListSeller", tags=["BliBli"])
-@cache_response(redis_client, "getListSeller")
+# @cache_response(redis_client, "getListSeller")
 async def getListSellerKeyword(request: getListSellerRequest):
     try:
         result = getListSeller(request.keyword_seller, request.page)
@@ -110,19 +109,19 @@ async def getListSellerKeyword(request: getListSellerRequest):
         raise HTTPException(status_code=400, detail=str(e))
     
 @router.post("/getDetailProduct", tags=["BliBli"])
-@cache_response(redis_client, "getDetailProduct")
+# @cache_response(redis_client, "getDetailProduct")
 async def getDetailProductBySku(request: getDetailProductRequest):
     try:
-        result = getDetailProduct(request.FormatedID, request.itemSku)
+        result = getDetailProduct(request.URL)
         return result
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
 @router.post("/getInfoShop", tags=["BliBli"])
-@cache_response(redis_client, "getInfoShop")
+# @cache_response(redis_client, "getInfoShop")
 async def getInfoShopP(request: getInfoShopRequest):
     try:
-        result = getInfoShop(request.merchantCode)
+        result = getInfoShop(request.namaToko)
         return result
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))

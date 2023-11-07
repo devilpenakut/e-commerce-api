@@ -31,7 +31,7 @@ def match_results(data, search_term):
     
     return None  # Mengembalikan None jika tidak ditemukan
 
-def search(keyword):
+def searchMerchant(keyword):
     encoded = urllib.parse.quote(keyword)
     url = f'https://www.blibli.com/backend/search/autocomplete?searchTermPrefix={encoded}'
 
@@ -68,4 +68,3 @@ def search(keyword):
     return store_code
     
     
-search("Blibli - Apple Authorised Reseller")
