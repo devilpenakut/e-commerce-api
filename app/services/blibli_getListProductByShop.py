@@ -5,6 +5,7 @@ import re
 import os
 import json
 import urllib.parse
+from difflib import SequenceMatcher
 
 
 def randomPort():
@@ -12,24 +13,28 @@ def randomPort():
     return str(random.randint(10000, 10004))
 
 def clean_string(input_string):
-    """Fungsi untuk membersihkan string dari karakter non-alfanumerik dan mengubahnya menjadi lowercase."""
+    """Function to clean a string from non-alphanumeric characters and convert it to lowercase."""
     return re.sub(r'[^a-zA-Z0-9]', '', input_string).lower()
 
+def is_similar(a, b):
+    """Function to check if two strings are at least 50% similar."""
+    return SequenceMatcher(None, a, b).ratio() > 0.5
+
 def match_results(data, search_term):
-    """Fungsi untuk mencari `search_term` di dalam data yang diberikan."""
-    # Membersihkan search_term
+    """Function to search for `search_term` within the provided data."""
+    # Cleaning the search_term
     clean_search_term = clean_string(search_term)
-    
-    # Mencari di dalam anchorStore dan nonOfficialMerchant
+
+    # Searching within anchorStore and nonOfficialMerchant
     for key in ['anchorStore', 'nonOfficialMerchant']:
         for store in data.get(key, []):
             term = store.get('term', '')
-            # Membersihkan term dan menghapus spasi tambahan
+            # Cleaning term and removing additional spaces
             clean_term = clean_string(term).strip()
-            if clean_search_term == clean_term:
-                return store  # Mengembalikan objek store jika ditemukan
-    
-    return None  # Mengembalikan None jika tidak ditemukan
+            if is_similar(clean_search_term, clean_term):
+                return store  # Returning the store object if found
+
+    return None  # Returning None if not found
 
 def searchMerchant(keyword):
     encoded = urllib.parse.quote(keyword)
