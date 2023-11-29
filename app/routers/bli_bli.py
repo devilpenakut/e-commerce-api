@@ -68,7 +68,7 @@ def cache_response(redis_client, redis_key_prefix):
     return decorator
 
 @router.get("/getCategoryLevel1", tags=["BliBli"])
-@cache_response(redis_client, "getCategoryLevel1")
+# @cache_response(redis_client, "getCategoryLevel1")
 async def getCategoryLevel1():
     try:
         result = getLevel1()
@@ -78,7 +78,7 @@ async def getCategoryLevel1():
     
 
 @router.post("/getCategoryChildren", tags=["BliBli"])
-@cache_response(redis_client, "getCategoryChildren")
+# @cache_response(redis_client, "getCategoryChildren")
 async def getCategoryLevel2(request: getLevel2Request):
     try:
         result = getLevel2(request.level1_id)
@@ -87,7 +87,7 @@ async def getCategoryLevel2(request: getLevel2Request):
         raise HTTPException(status_code=400, detail=str(e))
     
 @router.post("/getListProductByCat", tags=["BliBli"])
-@cache_response(redis_client, "getListProductByCat")
+# @cache_response(redis_client, "getListProductByCat")
 async def getListProductByCat(request: getListProductByCatRequest):
     try:
         result = getLisProductByCat(request.category_code, request.page)
@@ -96,7 +96,7 @@ async def getListProductByCat(request: getListProductByCatRequest):
         raise HTTPException(status_code=400, detail=str(e))
     
 @router.post("/getListProductByKeyword", tags=["BliBli"])
-@cache_response(redis_client, "getListProductByKeyword")
+# @cache_response(redis_client, "getListProductByKeyword")
 async def getListProductByKeyword(request: getListProductByKeywordRequest):
     try:
         result = getListProductByKey(request.category_code, request.page)
@@ -105,7 +105,7 @@ async def getListProductByKeyword(request: getListProductByKeywordRequest):
         raise HTTPException(status_code=400, detail=str(e))
     
 @router.post("/getListSeller", tags=["BliBli"])
-@cache_response(redis_client, "getListSeller")
+# @cache_response(redis_client, "getListSeller")
 async def getListSellerKeyword(request: getListSellerRequest):
     try:
         result = getListSeller(request.keyword_seller, request.page)
@@ -114,7 +114,7 @@ async def getListSellerKeyword(request: getListSellerRequest):
         raise HTTPException(status_code=400, detail=str(e))
     
 @router.post("/getDetailProduct", tags=["BliBli"])
-@cache_response(redis_client, "getDetailProduct")
+# @cache_response(redis_client, "getDetailProduct")
 async def getDetailProductBySku(request: getDetailProductRequest):
     try:
         result = getDetailProduct(request.URL)
@@ -123,7 +123,7 @@ async def getDetailProductBySku(request: getDetailProductRequest):
         raise HTTPException(status_code=400, detail=str(e))
 
 @router.post("/getInfoShop", tags=["BliBli"])
-@cache_response(redis_client, "getInfoShop")
+# @cache_response(redis_client, "getInfoShop")
 async def getInfoShopP(request: getInfoShopRequest):
     try:
         result = getInfoShop(request.namaToko)
@@ -132,7 +132,7 @@ async def getInfoShopP(request: getInfoShopRequest):
         raise HTTPException(status_code=400, detail=str(e))
     
 @router.post("/getListProductByShop", tags=["BliBli"])
-@cache_response(redis_client, "getListProductByShop")
+# @cache_response(redis_client, "getListProductByShop")
 async def getListProductByShopP(request: getListProductByShopRequest):
     try:
         result = getListProductByShop(request.namaToko, request.page)
