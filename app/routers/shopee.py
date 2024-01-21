@@ -69,7 +69,7 @@ class ScrapByCategoryRequest(BaseModel):
     location: str = ""
 
 @router.post("/detailProduct", tags=["Shopee"])
-# @cache_response(redis_client, "detail_product")
+@cache_response(redis_client, "detail_product")
 async def scrape_detail_product(data: DetailProductRequest):
     try:
         result = getDetailProduct(data.URL)
@@ -79,7 +79,7 @@ async def scrape_detail_product(data: DetailProductRequest):
 
 
 @router.post("/scrapByKeyword", tags=["Shopee"])
-# @cache_response(redis_client, "scrap_by_keyword")
+@cache_response(redis_client, "scrap_by_keyword")
 async def scrape_products_by_keyword(data: ScrapByKeywordRequest):
     try:
         result = getListProductByKeyword(data.keyword, data.page)
@@ -88,7 +88,7 @@ async def scrape_products_by_keyword(data: ScrapByKeywordRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/shopDetailShop" , tags=["Shopee"])
-# @cache_response(redis_client, "shop_detail_shop")
+@cache_response(redis_client, "shop_detail_shop")
 async def scrape_shop_detail(data: ScrapShopDetailRequest):
     try:
         result = getShopDetail(data.shop_username)
@@ -97,7 +97,7 @@ async def scrape_shop_detail(data: ScrapShopDetailRequest):
         raise HTTPException(status_code=500, detail=str(e))
     
 @router.post("/scrapByShop" , tags=["Shopee"])
-# @cache_response(redis_client, "scrap_by_shop")
+@cache_response(redis_client, "scrap_by_shop")
 async def scrape_products_by_shop(data: ScrapByShopRequest):
     try:
         result = getLisProductByShop(data.shopID)
@@ -106,7 +106,7 @@ async def scrape_products_by_shop(data: ScrapByShopRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.get("/allCategory" , tags=["Shopee"])
-# @cache_response(redis_client, "all_category")
+@cache_response(redis_client, "all_category")
 async def get_all_category():
     try:
         result = getAllCategory()
@@ -115,7 +115,7 @@ async def get_all_category():
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/allCategoryLevel3" , tags=["Shopee"])
-# @cache_response(redis_client, "all_category_level3")
+@cache_response(redis_client, "all_category_level3")
 async def get_all_category_level3(data: ScrapCategoryLevel3Request):
     try:
         result = getAllCategoryLevel3(data.level2ID)

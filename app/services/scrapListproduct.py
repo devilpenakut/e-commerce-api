@@ -40,28 +40,22 @@ def randomPort():
 
 
 def getListProductByKeyword(keyword, page):
-    data = getRamdomPhoneModel()
+    
     if page == 0:
         newest = "0"
     else:
         newest = (page - 1) * 60
 
-    cookie_template = {data["name"]: data["value"] for data in get_cookies()}
-    cookie_string = "; ".join(
-        [f"{key}={value}" for key, value in cookie_template.items()]
-    )
+   
     headers = {
-        "Host": "shopee.co.id",
-        "Referer": "https://shopee.co.id/",
+        "Host": "mall.shopee.co.id",
+        "Referer": "https://mall.shopee.co.id",
         "X-Api-Source": "rn",
-        "X-Shopee-Language": "id",
-        "X-Phone-Brand": data["brand"],
-        "X-Phone-Model": data["device"],
-        "If-None-Match-": "",
+        "X-Phone-Brand": "samsung",
+        "X-Phone-Model": "SM-G988N",
         "Shopee_http_dns_mode": "1",
-        "Accept-Encoding": "gzip, deflate",
-        "User-Agent": "Android app Shopee appver=29313 app_type=13",
-        "Cookie": cookie_string,
+        "Accept-Encoding": "gzip, deflate, br",
+        "User-Agent": "Android app Shopee appver=29311 app_type=13",
     }
 
     proxy_url = (
@@ -85,10 +79,10 @@ def getListProductByKeyword(keyword, page):
     }
 
     response = requests.get(
-        "https://shopee.co.id/api/v4/search/search_items",
+        "http://147.136.167.34/api/v4/search/search_items",
         params=params,
         headers=headers,
-        proxies=proxies,
+        # proxies=proxies,
         # cookies=cookies,
     )
     # print(response.json())
@@ -96,24 +90,17 @@ def getListProductByKeyword(keyword, page):
 
 
 def getShopDetail(username_store):
-    data = getRamdomPhoneModel()
-    cookie_template = {data["name"]: data["value"] for data in get_cookies()}
-    cookie_string = "; ".join(
-        [f"{key}={value}" for key, value in cookie_template.items()]
-    )
+  
 
     headers = {
-        "Host": "shopee.co.id",
-        "Referer": "https://shopee.co.id/",
+        "Host": "mall.shopee.co.id",
+        "Referer": "https://mall.shopee.co.id",
         "X-Api-Source": "rn",
-        "X-Shopee-Language": "id",
-        "X-Phone-Brand": data["brand"],
-        "X-Phone-Model": data["device"],
-        "If-None-Match-": "",
+        "X-Phone-Brand": "samsung",
+        "X-Phone-Model": "SM-G988N",
         "Shopee_http_dns_mode": "1",
-        "Accept-Encoding": "gzip, deflate",
-        "User-Agent": "Android app Shopee appver=29313 app_type=13",
-        "Cookie": cookie_string,
+        "Accept-Encoding": "gzip, deflate, br",
+        "User-Agent": "Android app Shopee appver=29311 app_type=13",
     }
 
     proxy_url = (
@@ -134,57 +121,26 @@ def getShopDetail(username_store):
     }
 
     response = requests.get(
-        "https://shopee.co.id/api/v4/shop/get_shop_base",
+        "http://147.136.167.34/api/v4/shop/get_shop_base",
         params=params,
         headers=headers,
-        proxies=proxies,
+        # proxies=proxies,
     )
     # print(response.json())
     return response.json()
 
 
 def getLisProductByShop(shopid):
-    cookie_template = {
-        "SPC_R_T_ID": randomChar(),
-        "SPC_R_T_IV": randomChar(),
-        "SPC_T_ID": randomChar(),
-        "SPC_T_IV": randomChar(),
-        "REC_T_ID": randomChar(),
-        "SPC_CLIENTID": randomChar(),
-        "language": "id",
-        "SPC_DID": randomChar(),
-        "SPC_F": f"{randomChar()}_unknown",
-        "SPC_AFTID": randomChar(),
-        "SPC_RNBV": randomChar(),
-        "_gcl_au": f"1.1.{randomChar()}.{randomChar()}",
-        "_fbp": f"fb.2.{randomChar()}.{randomChar()}",
-        "UA": f"Shopee%20Android%20Beeshop%20locale%2Fid%20version%3D738%20appver%3D29313",
-        "SPC_SI": randomChar(),
-        "csrftoken": randomChar(),
-    }
-
-    cookie_string = "; ".join(
-        [f"{key}={value}" for key, value in cookie_template.items()]
-    )
-
-    referer = "https://shopee.co.id/shop/{}/search".format(shopid)
+   
     headers = {
-        "authority": "shopee.co.id",
-        "accept": "*/*",
-        "accept-language": "en-US,en;q=0.8",
-        "referer": referer,
-        "sec-ch-ua": '"Not/A)Brand";v="99", "Brave";v="115", "Chromium";v="115"',
-        "sec-ch-ua-mobile": "?0",
-        "sec-ch-ua-platform": '"Windows"',
-        "sec-fetch-dest": "empty",
-        "sec-fetch-mode": "cors",
-        "sec-fetch-site": "same-origin",
-        "sec-gpc": "1",
-        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
-        "x-api-source": "pc",
-        "x-requested-with": "XMLHttpRequest",
-        "x-shopee-language": "en",
-        "Cookie": cookie_string,
+        "Host": "mall.shopee.co.id",
+        "Referer": "https://mall.shopee.co.id",
+        "X-Api-Source": "rn",
+        "X-Phone-Brand": "samsung",
+        "X-Phone-Model": "SM-G988N",
+        "Shopee_http_dns_mode": "1",
+        "Accept-Encoding": "gzip, deflate, br",
+        "User-Agent": "Android app Shopee appver=29311 app_type=13",
     }
 
     params = {
@@ -192,7 +148,7 @@ def getLisProductByShop(shopid):
         "limit": "100",
         "offset": "0",
         "section": "shop_page_product_tab_main_sec",
-        "shopid": shopid,
+        "shop_id": shopid,
     }
 
     proxy_url = (
@@ -205,17 +161,15 @@ def getLisProductByShop(shopid):
     }
 
     response = requests.get(
-        "https://shopee.co.id/api/v4/recommend/recommend",
+        "http://147.136.167.34/api/v4/shop/rcmd_items",
         params=params,
         headers=headers,
-        verify=False,
-        proxies=proxies,
+        # proxies=proxies,
     )
 
     data = response.json()
     data = data["data"]
-    total_product = data["sections"][0]["total"]
-    print(total_product)
+    total_product = data["total"]
 
     # Loop through the products in batches of 100
     offset = 0
@@ -228,15 +182,14 @@ def getLisProductByShop(shopid):
         )  # Update the offset in the params for the next batch
 
         response = requests.get(
-            "https://shopee.co.id/api/v4/recommend/recommend",
+            "http://147.136.167.34/api/v4/shop/rcmd_items",
             params=params,
             headers=headers,
-            verify=False,
-            proxies=proxies,
+            # proxies=proxies,
         )
 
         data = response.json()
-        products_list = data["data"]["sections"][0]["data"]["item"]
+        products_list = data["data"]["items"]
         final_products_list.extend(products_list)
 
         offset += batch_size
@@ -249,29 +202,20 @@ def getLisProductByShop(shopid):
 def getListProductByCat(
     catid_lvl1, catid_lvl2, catid_lvl3, location, page=0, filter="pop"
 ):
-    
-    data = getRamdomPhoneModel()
-    cookie_template = {data["name"]: data["value"] for data in get_cookies()}
-    cookie_string = "; ".join(
-        [f"{key}={value}" for key, value in cookie_template.items()]
-    )
-
+  
     if page == 0:
         newest = "0"
     else:
         newest = (page - 1) * 60
     headers = {
         "Host": "mall.shopee.co.id",
-        "Referer": "https://mall.shopee.co.id/",
+        "Referer": "https://mall.shopee.co.id",
         "X-Api-Source": "rn",
-        "X-Shopee-Language": "id",
-        "X-Phone-Brand": data["brand"],
-        "X-Phone-Model": data["device"],
-        "If-None-Match-": "",
+        "X-Phone-Brand": "samsung",
+        "X-Phone-Model": "SM-G988N",
         "Shopee_http_dns_mode": "1",
-        "Accept-Encoding": "gzip, deflate",
-        "User-Agent": "Android app Shopee appver=29313 app_type=13",
-        "Cookie": cookie_string,
+        "Accept-Encoding": "gzip, deflate, br",
+        "User-Agent": "Android app Shopee appver=29311 app_type=13",
     }
 
     proxy_url = (
@@ -304,18 +248,18 @@ def getListProductByCat(
     elif catid_lvl2 and catid_lvl3:
         params["match_id"] = catid_lvl2
         params["categoryids"] = catid_lvl3
-        
+
     if location:
         # encode space to %20
-        params["locations"] = re.sub(" ", "%20", location) 
-        
-    print(params)
+        params["locations"] = re.sub(" ", "%20", location)
+
+    # print(params)
 
     response = requests.get(
-        "https://mall.shopee.co.id/api/v4/search/search_items",
+        "http://147.136.167.34/api/v4/search/search_items",
         params=params,
         headers=headers,
-        proxies=proxies,
+        # proxies=proxies,
     )
     # print(response.json())
     return response.json()

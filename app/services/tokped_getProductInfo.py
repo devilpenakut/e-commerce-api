@@ -11,6 +11,45 @@ def randomPort():
     # random antara 10000 - 10004 ubah ke string
     return str(random.randint(10000, 10004))
 
+def getRating(productID):
+  url = "https://gql.tokopedia.com/graphql/productRatingAndTopics"
+
+  payload = json.dumps([
+    {
+      "operationName": "productRatingAndTopics",
+      "variables": {
+        "productID": productID
+      },
+      "query": "query productRatingAndTopics($productID: String!) {\n  productrevGetProductRatingAndTopics(productID: $productID) {\n    productID\n    rating {\n      positivePercentageFmt\n      ratingScore\n      totalRating\n      totalRatingWithImage\n      totalRatingTextAndImage\n      detail {\n        rate\n        totalReviews\n        formattedTotalReviews\n        percentageFloat\n        __typename\n      }\n      __typename\n    }\n    topics {\n      rating\n      ratingFmt\n      formatted\n      key\n      reviewCount\n      reviewCountFmt\n      show\n      __typename\n    }\n    availableFilters {\n      withAttachment\n      rating\n      topics\n      helpfulness\n      __typename\n    }\n    __typename\n  }\n}\n"
+    }
+  ])
+  headers = {
+    'sec-ch-ua': '"Brave";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+    'X-Version': '2d6fd72',
+    'sec-ch-ua-mobile': '?0',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+    'content-type': 'application/json',
+    'accept': '*/*',
+    'Referer': 'https://www.tokopedia.com/johnsonnjohnson/johnson-s-gift-box-paket-hadiah-bayi?src=topads',
+    'X-Source': 'tokopedia-lite',
+    'X-Tkpd-Lite-Service': 'zeus',
+    'sec-ch-ua-platform': '"Windows"',
+    'Cookie': '_abck=3FE435785D7678DE932851525032B412~-1~YAAQJr4vF2SBuwuMAQAATUjsGQod3D3zepA7vHQcfHbrvDmGTqjBAzcRX5kp1QHWuVTnU1Zg3uN3zTYpBvK69qtSPLdNh1FRvXavdZeF4jYyYTfctUn5O+YupALe5oEavlDx0+5n8w+AQdw6Gd75X1V3HPneodzCEwWde64HFE63+CnUPBLUMipc+4eu8Izf3/fGT7luA5X5aY3V0Safa688gzN/psjSPvjx86OGtOSVcxx5c2WxgW0JW2BHCKmCHIGVGO0130tQiq7eWiI6IzjzlJbf2jXfZ0XMwMHYMAEgyeO7P6OJJylJYAnm474yZUu51UKUsde6i52WF4FqQ52Z0HV6jDhnl6bRj6npfK0maKlP04dv2tHfXs/ypu764Wkd1yBmVxnbXYLYbA==~-1~-1~-1; bm_sz=3A79C38DE771EFC34B5562DEAA3708F2~YAAQJr4vF2WBuwuMAQAATUjsGRXd+9Z4ONVLjZonnNcPR7aS4EXstfUz2MG5XvnJAiJp9rd3ZPtQmjcZnjXRJ6BkjzIAEqAvI6TU0r1rCtyZApsfdlM4/qyhJ/HZSyPZiiAr16y19V4c0nvCbsx1XrA9Ep0nQSGZ7aq1Y2dRFoIBppxapATp0HPKZvyl0xvptQW1vAJXsjbrcSBKy1lpbUIheNmGhxMr9Z+zE5x+o/Jl1cyezqTyelZ2imiSyD/qlFUn8Ag/il5TtZxM8O2oDokdM4VVvQoRntTUjnFkJ217l4geR+w=~3683889~3289654'
+  }
+
+  proxy_url = (
+        "http://firhandarief;country=ID:57fee1-d01161-63d5f9-beed9f-8105b3@38.84.70.226:"
+        + randomPort()
+    )
+  proxies = {
+        "http": proxy_url,
+        "https": proxy_url,
+    }
+  response = requests.request("POST", url, headers=headers, data=payload, proxies= proxies)
+  response = response.json()
+  response = response[0]['data']['productrevGetProductRatingAndTopics']
+  return response
+
 
 def getProductInfo(productURL):
   pattern = r"tokopedia\.com\/([^\/]+)\/([^?]+)"
@@ -55,7 +94,7 @@ def getProductInfo(productURL):
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36',
     'content-type': 'application/json',
     'accept': '*/*',
-    'Referer': 'https://www.tokopedia.com/bajukoki/sendok-garpu-16cm-tanpa-cover-wooden-cutlery-spork-kayu-per-1pc?extParam=src%3Dshop%26whid%3D1573699',
+    'Referer': 'https://www.tokopedia.com/',
     'X-Source': 'tokopedia-lite',
     'x-device': 'desktop',
     'X-Tkpd-Lite-Service': 'zeus',
@@ -72,5 +111,11 @@ def getProductInfo(productURL):
         "https": proxy_url,
     }
   response = requests.request("POST", url, headers=headers, data=payload, proxies= proxies)
-  
-  return response.json()
+
+  productID = response.json()[0]['data']['pdpGetLayout']['basicInfo']['id']
+  data_rating = getRating(productID)
+  new_response = response.json()
+  new_response[0]['data']['rating'] = data_rating
+  # print(new_response[0]['data']['rating'])
+  # print(new_response)
+  return new_response

@@ -6,6 +6,7 @@ import json
 import os
 from ..services.cookies import get_cookies
 
+
 def randomChar():
     return "".join(random.choice(string.ascii_letters) for i in range(100))
 
@@ -37,19 +38,18 @@ def randomPort():
 def getShopDetail(username_store):
     data = getRamdomPhoneModel()
     cookie_template = {data["name"]: data["value"] for data in get_cookies()}
-    cookie_string = "; ".join([f"{key}={value}" for key, value in cookie_template.items()])
+    cookie_string = "; ".join(
+        [f"{key}={value}" for key, value in cookie_template.items()]
+    )
     headers = {
-        "Host": "shopee.co.id",
-        "Referer": "https://shopee.co.id/",
+        "Host": "mall.shopee.co.id",
+        "Referer": "https://mall.shopee.co.id",
         "X-Api-Source": "rn",
-        "X-Shopee-Language": "id",
-        "X-Phone-Brand": data["brand"],
-        "X-Phone-Model": data["device"],
-        "If-None-Match-": "",
+        "X-Phone-Brand": "samsung",
+        "X-Phone-Model": "SM-G988N",
         "Shopee_http_dns_mode": "1",
-        "Accept-Encoding": "gzip, deflate",
-        "User-Agent": "Android app Shopee appver=29313 app_type=13",
-        "Cookie": cookie_string,
+        "Accept-Encoding": "gzip, deflate, br",
+        "User-Agent": "Android app Shopee appver=29311 app_type=13",
     }
 
     proxy_url = (
@@ -62,18 +62,18 @@ def getShopDetail(username_store):
     }
 
     params = {
-    'keyword': 'safi',
-    'limit': '6',
-    'offset': '0',
-    'page': 'search_user',
-    'with_search_cover': 'true',
-}
+        "keyword": "safi",
+        "limit": "6",
+        "offset": "0",
+        "page": "search_user",
+        "with_search_cover": "true",
+    }
 
     response = requests.get(
-        "https://shopee.co.id/api/v4/search/search_user",
+        "http://147.136.167.34/api/v4/search/search_user",
         params=params,
         headers=headers,
-        proxies=proxies,
+        # proxies=proxies,
     )
     # print(response.json())
     return response.json()
