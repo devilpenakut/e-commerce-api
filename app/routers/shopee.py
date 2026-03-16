@@ -6,17 +6,13 @@ from ..services.scrapCategory import getAllCategory , getAllCategoryLevel3
 from ..services.cookies import addCookies
 import redis
 import json
+import os
 from functools import wraps
 
 
 router = APIRouter()
 
-redis_host = "redis"  # This matches the service name in docker-compose.yml
-redis_port = 6379
-redis_password = ""
-redis_db = 0
-
-redis_client = redis.Redis(host=redis_host, port=redis_port, password=redis_password, db=redis_db)
+redis_client = redis.from_url(os.environ.get("REDIS_URL", "redis://localhost:6379"))
 
 def cache_response(redis_client, redis_key_prefix):
     def decorator(func):
