@@ -12,23 +12,33 @@ from functools import wraps
 
 router = APIRouter()
 
-redis_client = redis.from_url(os.environ.get("REDIS_URL", "redis://localhost:6379"))
+try:
+    _r = redis.from_url(os.environ.get("REDIS_URL", "redis://localhost:6379"))
+    _r.ping()
+    redis_client = _r
+except Exception:
+    redis_client = None
 
 def cache_response(redis_client, redis_key_prefix):
     def decorator(func):
         @wraps(func)
         async def wrapper(*args, **kwargs):
-            # Generate a unique Redis key based on function name and arguments
-            redis_key = f"{redis_key_prefix}:{func.__name__}:{args}:{kwargs}"
-            redis_result = redis_client.get(redis_key)
+            if redis_client is None:
+                return await func(*args, **kwargs)
 
-            if redis_result is not None:
-                result_dict = json.loads(redis_result)
-                return result_dict
+            redis_key = f"{redis_key_prefix}:{func.__name__}:{args}:{kwargs}"
+            try:
+                redis_result = redis_client.get(redis_key)
+                if redis_result is not None:
+                    return json.loads(redis_result)
+            except Exception:
+                return await func(*args, **kwargs)
 
             result = await func(*args, **kwargs)
-
-            redis_client.set(redis_key, json.dumps(result))
+            try:
+                redis_client.set(redis_key, json.dumps(result))
+            except Exception:
+                pass
             return result
 
         return wrapper
