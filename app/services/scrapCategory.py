@@ -1,14 +1,9 @@
-import requests
+from .http_utils import request_with_retry, get_proxy
 import random
 import string
 import re
 import os
 import json
-
-
-def randomPort():
-    # random antara 10000 - 10004 ubah ke string
-    return str(random.randint(10000, 10004))
 
 
 def getAllCategory():
@@ -62,7 +57,7 @@ def getAllCategory():
         'x-sz-sdk-version': '1.6.14',
     }
 
-    response = requests.get('http://147.136.167.34/api/v4/pages/get_category_tree', headers=headers)
+    response = request_with_retry("GET", 'http://147.136.167.34/api/v4/pages/get_category_tree', headers=headers)
         # print(response.json())
     print(response.json())
     return response.json()
@@ -104,14 +99,7 @@ def getAllCategoryLevel3(level2ID):
         "User-Agent": "Android app Shopee appver=29311 app_type=13",
     }
 
-    proxy_url = (
-        "http://firhandarief;country=ID:57fee1-d01161-63d5f9-beed9f-8105b3@38.84.70.226:"
-        + randomPort()
-    )
-    proxies = {
-        "http": proxy_url,
-        "https": proxy_url,
-    }
+    proxies = get_proxy()
 
     params = {
         "match_id": level2ID,
@@ -119,7 +107,7 @@ def getAllCategoryLevel3(level2ID):
         "scenario": "PAGE_CATEGORY",
     }
 
-    response = requests.get(
+    response = request_with_retry("GET", 
         "http://147.136.167.34/api/v4/search/search_filter_config",
         headers=headers,
         # proxies=proxies,

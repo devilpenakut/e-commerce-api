@@ -1,15 +1,8 @@
-import requests
-import random
-import string
+from .http_utils import request_with_retry, get_proxy
 import re
 import os
 import json
-import urllib.parse
 
-
-def randomPort():
-    # random antara 10000 - 10004 ubah ke string
-    return str(random.randint(10000, 10004))
 
 def getRating(productID):
   url = "https://gql.tokopedia.com/graphql/productRatingAndTopics"
@@ -37,15 +30,8 @@ def getRating(productID):
     'Cookie': '_abck=3FE435785D7678DE932851525032B412~-1~YAAQJr4vF2SBuwuMAQAATUjsGQod3D3zepA7vHQcfHbrvDmGTqjBAzcRX5kp1QHWuVTnU1Zg3uN3zTYpBvK69qtSPLdNh1FRvXavdZeF4jYyYTfctUn5O+YupALe5oEavlDx0+5n8w+AQdw6Gd75X1V3HPneodzCEwWde64HFE63+CnUPBLUMipc+4eu8Izf3/fGT7luA5X5aY3V0Safa688gzN/psjSPvjx86OGtOSVcxx5c2WxgW0JW2BHCKmCHIGVGO0130tQiq7eWiI6IzjzlJbf2jXfZ0XMwMHYMAEgyeO7P6OJJylJYAnm474yZUu51UKUsde6i52WF4FqQ52Z0HV6jDhnl6bRj6npfK0maKlP04dv2tHfXs/ypu764Wkd1yBmVxnbXYLYbA==~-1~-1~-1; bm_sz=3A79C38DE771EFC34B5562DEAA3708F2~YAAQJr4vF2WBuwuMAQAATUjsGRXd+9Z4ONVLjZonnNcPR7aS4EXstfUz2MG5XvnJAiJp9rd3ZPtQmjcZnjXRJ6BkjzIAEqAvI6TU0r1rCtyZApsfdlM4/qyhJ/HZSyPZiiAr16y19V4c0nvCbsx1XrA9Ep0nQSGZ7aq1Y2dRFoIBppxapATp0HPKZvyl0xvptQW1vAJXsjbrcSBKy1lpbUIheNmGhxMr9Z+zE5x+o/Jl1cyezqTyelZ2imiSyD/qlFUn8Ag/il5TtZxM8O2oDokdM4VVvQoRntTUjnFkJ217l4geR+w=~3683889~3289654'
   }
 
-  proxy_url = (
-        "http://firhandarief;country=ID:57fee1-d01161-63d5f9-beed9f-8105b3@38.84.70.226:"
-        + randomPort()
-    )
-  proxies = {
-        "http": proxy_url,
-        "https": proxy_url,
-    }
-  response = requests.request("POST", url, headers=headers, data=payload, proxies= proxies)
+  proxies = get_proxy()
+  response = request_with_retry("POST", url, headers=headers, data=payload, proxies= proxies)
   response = response.json()
   response = response[0]['data']['productrevGetProductRatingAndTopics']
   return response
@@ -102,19 +88,13 @@ def getProductInfo(productURL):
     'Cookie': '_abck=7053B61DF033355E32F25D33E634A7DA~-1~YAAQBNs4fayyYNmKAQAALdT86Aq+xqQD7/dXZ6vdKoKennZLgyykSXWF2t7jBbpRDv5rXx+0vW5+eyMG/15m6CrldKMLebD7uIT4zDFACtrgfc4SLDWAR12cl70XQ0Gc9w373pxdrzF90tE3YwYoYi5tbKrQAt1yvrv4TebcVSuw1anTjI/j3ppqyHsaOxQQ7RkB2fz3NdR07nQfFxY3y0sctRIXdmi8nH4abbH02X4/BqOTi7R61aC1/veIStuwtTvNfiIY6z2V8vWC1zVg3+bwD/7VAxLPuJC7jGAemXvbxJXIRqC98y0Nsf7wwcyT1t0HEgoiiDBkLtIuxolK57b2/GKQvy2OpYvdGOGK8Uc6GW5bTfaTGC+dmUyFBQJeSjkDlLPIvzlnVQ4y5Q==~-1~-1~-1; bm_sz=8073B4857B14B0CF0EAB4BACC07A6774~YAAQBNs4fa2yYNmKAQAALdT86BUt9Tu2MyzoHa7BC2mnf8sk1rlykIWyN7wHs4MJtrn0WIwEvaGZWunnAE3MkAEXvLA/yZvH0v9bPN1VUbLuWJMnKT5ofGRlLltMspOY68bdkBVNBol5lkfjvVEXRsfhmv0qMx6OhJ120UA3YIyXqOUCL9mFQRoGZrZrT5hYFe6Jc3HtzMu2o041scZYNdAc8uDnFzJDhwFzHo+b7MnTTad6s2QHNcxZRIZOnFcPjivcU/Xd4RmqENz2eAQqeU8gOKZMbtigDhxA4ctOm7gGkHvtNww=~3421490~4535604'
   }
 
-  proxy_url = (
-        "http://firhandarief;country=ID:57fee1-d01161-63d5f9-beed9f-8105b3@38.84.70.226:"
-        + randomPort()
-    )
-  proxies = {
-        "http": proxy_url,
-        "https": proxy_url,
-    }
-  response = requests.request("POST", url, headers=headers, data=payload, proxies= proxies)
+  proxies = get_proxy()
+  response = request_with_retry("POST", url, headers=headers, data=payload, proxies= proxies)
 
-  productID = response.json()[0]['data']['pdpGetLayout']['basicInfo']['id']
+  json_data = response.json()
+  productID = json_data[0]['data']['pdpGetLayout']['basicInfo']['id']
   data_rating = getRating(productID)
-  new_response = response.json()
+  new_response = json_data
   new_response[0]['data']['rating'] = data_rating
   # print(new_response[0]['data']['rating'])
   # print(new_response)

@@ -1,15 +1,7 @@
-import requests
-import random
-import string
+from .http_utils import request_with_retry, get_proxy
 import re
 import os
 import json
-import urllib.parse
-
-def randomPort():
-    # random antara 10000 - 10004 ubah ke string
-    return str(random.randint(10000, 10004))
-
 
 def getProductByShop(shopId,page):
 
@@ -48,14 +40,7 @@ def getProductByShop(shopId,page):
     'Cookie': '_abck=7053B61DF033355E32F25D33E634A7DA~-1~YAAQXWVVuLPeQ9mKAQAAKKTA6wpAdgrTuOXg+Wmt2OrK5h9LC87Y/w6uHQTmoyXQzJbPQH4oEP/sqBKOoF3OnvfK9IddSUS6+C4MagvxP8DuAwKin41qRDq+xOzbDTCFrpAOWlWiB37cYPDv3+wRirILONDxuAnpYWrm3PjvfnAmzC0LSr6dv/OXlbfDNDzES5/zrpqv6v2FgHWR2qlIMlofpRoUShBijwfngn4zb+F5KYwU7dr5/PDHEbxBGvZ+blacpJoFQBJ9fHsbZuPHr8slWPljfoIci9T9ZOe8KKwOFrfQdyfj7eYlouHQ2uf8B3PaFg9CJKteAX7h0tFoHt+z75MlyDT5dxxL/fVvM/K/BBJtlJnjqJSwScT8OSXTwr67o53EsF9RkQtxtw==~-1~-1~-1; bm_sz=64841EBE98AA286204714DB5A578BBAB~YAAQXWVVuLTeQ9mKAQAAKKTA6xUhlURCG2RSSLW6y6lllUbQLDXo95uBVPmm7K/vlbqcfeuiKpQTu4aCAvmzaGjbUg+Bfg89WccPFimJfxp8Kwajd6UDCtA5O32thPL5E3OtE+pdj5Q+61QgjUx4rvMTySDKxp6zXsEGkBRfTT3vTlxvQrFbAvJUWI/G+ZGaOapRHqFREZtc7dPcdNW9zqf0GK7lt5fNTDd31tsheo9986BtcBHJEUNShM+9q9ABRz3yrHp/lRs1YppbjNoW/8SoAsnNtZUeWCSkNB+GCsbq380cOU0=~3224899~4338225'
     }
 
-    proxy_url = (
-        "http://firhandarief;country=ID:57fee1-d01161-63d5f9-beed9f-8105b3@38.84.70.226:"
-        + randomPort()
-    )
-    proxies = {
-        "http": proxy_url,
-        "https": proxy_url,
-    }
-    response = requests.request("POST", url, headers=headers, data=payload, proxies= proxies)
+    proxies = get_proxy()
+    response = request_with_retry("POST", url, headers=headers, data=payload, proxies= proxies)
 
     return response.json()
