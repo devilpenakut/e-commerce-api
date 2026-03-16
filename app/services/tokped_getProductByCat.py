@@ -1,16 +1,7 @@
-from .http_utils import request_with_retry
-import random
-import string
+from .http_utils import request_with_retry, get_proxy
 import re
 import os
 import json
-import urllib.parse
-def randomPort():
-    # random antara 10000 - 10004 ubah ke string
-    return str(random.randint(10000, 10004))
-
-
-
 def getProductBycat(page, catId):
     start = ((page-1)*60)+1
     url = "https://gql.tokopedia.com/graphql/SearchProductQuery"
@@ -41,14 +32,7 @@ def getProductBycat(page, catId):
     'sec-ch-ua-platform': '"Windows"',
     #'Cookie': '_abck=7053B61DF033355E32F25D33E634A7DA~-1~YAAQb3obuMHitM2KAQAAol0M5grMtRhOBBp5EbdWdj39XlbDi/hJ6gDsDtZ+HRweDi+gtWSxGpRA0IalucPetOXOkxOWWwpYiXkWE3EF/b/y7jR8Rx8jDieLl62hFaUjfdZAQ2Yb8Vz6gV02BYn9NJV+iKZXd2yFrQSVWF66mBlrGFeRBklDSSnzzv27o80zrnHIwasSvzfH6+zTSaP4erpYTwlJLdDeXCdaE445StprTWdla+YxWYM8RjTuArjeupuI+lHkqVtCAnUrhzvv8FfZ2JmyDrPGXhpXQnVWx2NXJbtE+YaF239qX1RyavIciT55ctyf5MoMLcsZcIXLI8z+zmtw1uJSLvquSm4XR8f4EMTfD8Wuz7X1ZYu7laKUMFQICwzXWPiWUerSrw==~-1~-1~-1; bm_sz=79839CC616FBCCE4A08EA88491ED8109~YAAQb3obuMLitM2KAQAAol0M5hVpCd0ops2mokNoabgXbDmpOs75Srag570HM4GrFMMJmFiI+5cSCrGFYpN9wZ6Kf8WMEcMVxoiEvq700Pcr6hMb3sd8NlCV/QAFjq1sSQ2+4tLsgR4q2TucBcsZ7Xq0mg6X38+E8Ym9uhGyu3jZkoyNqQe4ToPePDXXW0VO7bmzCkXLBHq3YdpT7usToONUQd/lXUplc4dYcrvSr8ZzzIIaatLr2e9lKXfvh3U/YGF95R6tI1zyaP9jaLDbTnKhw8GyzpmadA6lJscj0rJOVIhYoyI=~4338488~3486788'
     }
-    proxy_url = (
-        "http://firhandarief;country=ID:57fee1-d01161-63d5f9-beed9f-8105b3@38.84.70.226:"
-        + randomPort()
-    )
-    proxies = {
-        "http": proxy_url,
-        "https": proxy_url,
-    }
+    proxies = get_proxy()
     response = request_with_retry("POST", url, headers=headers, data=payload, proxies= proxies)
 
     return response.json()

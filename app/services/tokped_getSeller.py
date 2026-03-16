@@ -1,16 +1,8 @@
-from .http_utils import request_with_retry
-import random
-import string
+from .http_utils import request_with_retry, get_proxy
 import re
 import os
 import json
 import urllib.parse
-def randomPort():
-    # random antara 10000 - 10004 ubah ke string
-    return str(random.randint(10000, 10004))
-
-
-
 def get_seller(shopName,page):
     url = "https://gql.tokopedia.com/graphql/AceSearchShop"
     encoded_shopName = urllib.parse.quote_plus(shopName)
@@ -37,14 +29,7 @@ def get_seller(shopName,page):
     'sec-ch-ua-platform': '"Windows"',
     #'Cookie': '_abck=7053B61DF033355E32F25D33E634A7DA~-1~YAAQSGVVuGidPtKKAQAAP3lo5Aq1Ah8Xm6t243FHpaxKNt34vumOwPB9eI7xao4WdFh0FnpS8EICLpg8OKIuTXZtZklRY312BxzuoUUlmKhetQZs7nY2IF8MeBCosHZomm8jDGwVZIw8RpW1pBODinmYeFEzMODwr0wH4b6lX2Zr5G6SiWD4ZOdpCM7uL5M24jX5HLsRc+HfireFBRN7s1X4li5IBn5CLSMYksta5WJdlXExLhqXViXb9+H06rhaqkUcN2fB1orivbjV/6SSGklZvy/sj1JsUCkrGmwLtmOGElZuSjckyGfv8Ez8+WLwJjp/aF1ht7mz+T7xVIz2xMnWRJ9dWCvyyNCqQfDsrHmbemIBg5k8iufIGiCS4Vo=~-1~-1~-1; bm_sz=36F31EBF4A506B19C2247C7B9996C8F8~YAAQSGVVuGmdPtKKAQAAP3lo5BXR9ieeCks4ZMYNYA5pOOdyvx799qkQGJi7890yt/txwwcYLCxVJWAfPjbklJdHygIXd6bp0KNesJ9CP50uhMcmMpYm086CFSs1M7RIii9excPpTwktRM6bedDnWKYw/X1tWs+VsS9HI5V/Xf1m82z/luO3d5VQlGJJoLpIHNIj+E7VxSaLWsOfE7+RuI363m4vyVt5xZgcQaRid4C67QwnCCK7JgIAWE3CcZHf+gU7QO6AFB6puUMiGDfgfdjILwXd+vXCJFiW+cTlCfK5W8ovkQM=~3425842~3686724'
     }
-    proxy_url = (
-        "http://firhandarief;country=ID:57fee1-d01161-63d5f9-beed9f-8105b3@38.84.70.226:"
-        + randomPort()
-    )
-    proxies = {
-        "http": proxy_url,
-        "https": proxy_url,
-    }
+    proxies = get_proxy()
     response = request_with_retry("POST", url, headers=headers, data=payload, proxies= proxies)
 
     return response.json()

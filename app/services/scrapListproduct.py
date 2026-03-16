@@ -1,42 +1,11 @@
-from .http_utils import request_with_retry
-import random
-import string
+from .http_utils import request_with_retry, get_proxy, getRamdomPhoneModel
 import re
-import json
-import os
-import http.cookies
 from ..services.cookies import get_cookies
 
 
 # terbaru = ctime
 # terlaris = sales
 # Terkaik = relevancy
-def randomChar():
-    return "".join(random.choice(string.ascii_letters) for i in range(100))
-
-
-def getRamdomPhoneModel():
-    script_directory = os.path.dirname(os.path.abspath(__file__))
-    devices_file_path = os.path.join(script_directory, "devices.json")
-
-    with open(devices_file_path, "r", encoding="utf-8", errors="replace") as f:
-        data = json.load(f)
-
-    # cari yang key "brand" nya tidak kosong dan == samsung atau Redmi
-    data = [
-        x
-        for x in data
-        if x["brand"] != "" and (x["brand"] == "samsung" or x["brand"] == "Redmi")
-    ]
-    # ambil random
-    data = random.choice(data)
-    # print(data)
-    return data
-
-
-def randomPort():
-    # random antara 10000 - 10004 ubah ke string
-    return str(random.randint(10000, 10004))
 
 
 def getListProductByKeyword(keyword, page):
@@ -58,14 +27,7 @@ def getListProductByKeyword(keyword, page):
         "User-Agent": "Android app Shopee appver=29311 app_type=13",
     }
 
-    proxy_url = (
-        "http://firhandarief;country=ID:57fee1-d01161-63d5f9-beed9f-8105b3@38.84.70.226:"
-        + randomPort()
-    )
-    proxies = {
-        "http": proxy_url,
-        "https": proxy_url,
-    }
+    proxies = get_proxy()
 
     params = {
         "by": "relevancy",
@@ -103,14 +65,7 @@ def getShopDetail(username_store):
         "User-Agent": "Android app Shopee appver=29311 app_type=13",
     }
 
-    proxy_url = (
-        "http://firhandarief;country=ID:57fee1-d01161-63d5f9-beed9f-8105b3@38.84.70.226:"
-        + randomPort()
-    )
-    proxies = {
-        "http": proxy_url,
-        "https": proxy_url,
-    }
+    proxies = get_proxy()
 
     params = {
         "entry_point": "",
@@ -151,14 +106,7 @@ def getLisProductByShop(shopid):
         "shop_id": shopid,
     }
 
-    proxy_url = (
-        "http://firhandarief;country=ID:57fee1-d01161-63d5f9-beed9f-8105b3@38.84.70.226:"
-        + randomPort()
-    )
-    proxies = {
-        "http": proxy_url,
-        "https": proxy_url,
-    }
+    proxies = get_proxy()
 
     response = request_with_retry("GET", 
         "http://147.136.167.34/api/v4/shop/rcmd_items",
@@ -218,14 +166,7 @@ def getListProductByCat(
         "User-Agent": "Android app Shopee appver=29311 app_type=13",
     }
 
-    proxy_url = (
-        "http://firhandarief;country=ID:57fee1-d01161-63d5f9-beed9f-8105b3@38.84.70.226:"
-        + randomPort()
-    )
-    proxies = {
-        "http": proxy_url,
-        "https": proxy_url,
-    }
+    proxies = get_proxy()
 
     params = {
         "by": filter,

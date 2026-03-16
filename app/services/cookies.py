@@ -18,6 +18,8 @@ def get_cookies():
             # delete expired cookies
             db.delete(doc)
 
+    if not all_cookies:
+        return None
     # pick random cookies
     random_cookies = random.choice(all_cookies)
     return random_cookies["cookies"]

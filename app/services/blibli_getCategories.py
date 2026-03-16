@@ -1,16 +1,7 @@
-import random
-import string
 import re
-import os
 import json
-import urllib.parse
-from .http_utils import request_with_retry
+from .http_utils import request_with_retry, get_proxy
 from .blibli_cookies import get_blibli_cookies
-
-
-def randomPort():
-    # random antara 10000 - 10004 ubah ke string
-    return str(random.randint(10000, 10004))
 
 
 def getLevel1():
@@ -33,14 +24,7 @@ def getLevel1():
         "user-agent": "Mozilla/5.0 (Linux; Android 14; SM-A102U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.5993.111 Mobile Safari/537.36",
     }
 
-    proxy_url = (
-        "http://firhandarief;country=ID:57fee1-d01161-63d5f9-beed9f-8105b3@38.84.70.226:"
-        + randomPort()
-    )
-    proxies = {
-        "http": proxy_url,
-        "https": proxy_url,
-    }
+    proxies = get_proxy()
     response = request_with_retry(
         "GET", url, headers=headers, data=payload, proxies=proxies
     )
@@ -67,14 +51,7 @@ def getLevel2(level1_id):
         "user-agent": "Mozilla/5.0 (Linux; Android 14; SM-A102U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.5993.111 Mobile Safari/537.36",
     }
 
-    proxy_url = (
-        "http://firhandarief;country=ID:57fee1-d01161-63d5f9-beed9f-8105b3@38.84.70.226:"
-        + randomPort()
-    )
-    proxies = {
-        "http": proxy_url,
-        "https": proxy_url,
-    }
+    proxies = get_proxy()
     response = request_with_retry(
         "GET", url, headers=headers, data=payload, proxies=proxies
     )

@@ -1,6 +1,32 @@
 import time
 import random
+import os
+import json
 import requests
+
+_DEVICES_PATH = os.path.join(os.path.dirname(__file__), "devices.json")
+with open(_DEVICES_PATH, "r") as _f:
+    _DEVICES = json.load(_f)
+
+
+def randomPort():
+    return str(random.randint(10000, 10004))
+
+
+def get_proxy():
+    proxy_url = (
+        "http://firhandarief;country=ID:57fee1-d01161-63d5f9-beed9f-8105b3@38.84.70.226:"
+        + randomPort()
+    )
+    return {"http": proxy_url, "https": proxy_url}
+
+
+def getRamdomPhoneModel():
+    filtered = [
+        x for x in _DEVICES
+        if x.get("brand") and (x["brand"] == "samsung" or x["brand"] == "Redmi")
+    ]
+    return random.choice(filtered)
 
 
 def random_delay(min_sec=0.5, max_sec=2.0):
