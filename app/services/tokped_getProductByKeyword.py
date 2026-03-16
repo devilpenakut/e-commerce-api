@@ -1,4 +1,4 @@
-import requests
+from .http_utils import request_with_retry
 import random
 import string
 import re
@@ -47,7 +47,7 @@ def getProductByKeyword(page, keyword):
         "http": proxy_url,
         "https": proxy_url,
     }
-    response = requests.request("POST", url, headers=headers, data=payload, proxies= proxies)
+    response = request_with_retry("POST", url, headers=headers, data=payload, proxies= proxies)
 
     return response.json()
     

@@ -11,6 +11,7 @@ from ..services.blibli_getListSeller import getListSeller
 from ..services.blibli_getDetailProduct import getDetailProduct
 from ..services.blibli_getInfoShop import getInfoShop
 from ..services.blibli_getListProductByShop import getListProductByShop
+from ..services.blibli_cookies import add_blibli_cookies
 
 router = APIRouter()
 
@@ -46,6 +47,9 @@ class getInfoShopRequest(BaseModel):
 class getListProductByShopRequest(BaseModel):
     namaToko: str = "Blibli - Apple Authorised Reseller"
     page: int = 1
+
+class addCookiesRequest(BaseModel):
+    cookie_string: str
 
 def cache_response(redis_client, redis_key_prefix):
     def decorator(func):
@@ -137,5 +141,13 @@ async def getListProductByShopP(request: getListProductByShopRequest):
     try:
         result = getListProductByShop(request.namaToko, request.page)
         return result
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+@router.post("/addCookies", tags=["BliBli"])
+async def addBlibliCookies(request: addCookiesRequest):
+    try:
+        add_blibli_cookies(request.cookie_string)
+        return {"message": "Cookie Blibli berhasil ditambahkan"}
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))

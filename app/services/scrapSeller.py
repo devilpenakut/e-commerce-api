@@ -1,4 +1,4 @@
-import requests
+from .http_utils import request_with_retry
 import random
 import string
 import re
@@ -69,7 +69,7 @@ def getShopDetail(username_store):
         "with_search_cover": "true",
     }
 
-    response = requests.get(
+    response = request_with_retry("GET", 
         "http://147.136.167.34/api/v4/search/search_user",
         params=params,
         headers=headers,

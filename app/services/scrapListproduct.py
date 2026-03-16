@@ -1,4 +1,4 @@
-import requests
+from .http_utils import request_with_retry
 import random
 import string
 import re
@@ -78,7 +78,7 @@ def getListProductByKeyword(keyword, page):
         "version": "2",
     }
 
-    response = requests.get(
+    response = request_with_retry("GET", 
         "http://147.136.167.34/api/v4/search/search_items",
         params=params,
         headers=headers,
@@ -120,7 +120,7 @@ def getShopDetail(username_store):
         "version": "1",
     }
 
-    response = requests.get(
+    response = request_with_retry("GET", 
         "http://147.136.167.34/api/v4/shop/get_shop_base",
         params=params,
         headers=headers,
@@ -160,7 +160,7 @@ def getLisProductByShop(shopid):
         "https": proxy_url,
     }
 
-    response = requests.get(
+    response = request_with_retry("GET", 
         "http://147.136.167.34/api/v4/shop/rcmd_items",
         params=params,
         headers=headers,
@@ -181,7 +181,7 @@ def getLisProductByShop(shopid):
             offset
         )  # Update the offset in the params for the next batch
 
-        response = requests.get(
+        response = request_with_retry("GET", 
             "http://147.136.167.34/api/v4/shop/rcmd_items",
             params=params,
             headers=headers,
@@ -255,7 +255,7 @@ def getListProductByCat(
 
     # print(params)
 
-    response = requests.get(
+    response = request_with_retry("GET", 
         "http://147.136.167.34/api/v4/search/search_items",
         params=params,
         headers=headers,

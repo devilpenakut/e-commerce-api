@@ -1,4 +1,4 @@
-import requests
+from .http_utils import request_with_retry
 import random
 import string
 import re
@@ -52,7 +52,7 @@ def getVoucherListQuery(shopID):
         "http": proxy_url,
         "https": proxy_url,
     }
-  response = requests.request("POST", url, headers=headers, data=payload, proxies= proxies)
+  response = request_with_retry("POST", url, headers=headers, data=payload, proxies= proxies)
   return response.json()
 
 def getSpeedQuery(shopID):
@@ -101,7 +101,7 @@ def getSpeedQuery(shopID):
         "http": proxy_url,
         "https": proxy_url,
     }
-  response = requests.request("POST", url, headers=headers, data=payload, proxies= proxies)
+  response = request_with_retry("POST", url, headers=headers, data=payload, proxies= proxies)
   # print(response.json())
   return response.json()
 
@@ -140,7 +140,7 @@ def ShopStatisticQuery(shopID):
         "http": proxy_url,
         "https": proxy_url,
     }
-  response = requests.request("POST", url, headers=headers, data=payload, proxies= proxies)
+  response = request_with_retry("POST", url, headers=headers, data=payload, proxies= proxies)
   return response.json()
   
   
@@ -186,7 +186,7 @@ def getShopInfo(url):
         "http": proxy_url,
         "https": proxy_url,
     }
-  response = requests.request("POST", url, headers=headers, data=payload, proxies= proxies)
+  response = request_with_retry("POST", url, headers=headers, data=payload, proxies= proxies)
   responseJSON = response.json()
   shopID=responseJSON[0]['data']['shopInfoByID']['result'][0]['shopCore']['shopID']
   # to int

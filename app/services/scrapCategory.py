@@ -1,4 +1,4 @@
-import requests
+from .http_utils import request_with_retry
 import random
 import string
 import re
@@ -62,7 +62,7 @@ def getAllCategory():
         'x-sz-sdk-version': '1.6.14',
     }
 
-    response = requests.get('http://147.136.167.34/api/v4/pages/get_category_tree', headers=headers)
+    response = request_with_retry("GET", 'http://147.136.167.34/api/v4/pages/get_category_tree', headers=headers)
         # print(response.json())
     print(response.json())
     return response.json()
@@ -119,7 +119,7 @@ def getAllCategoryLevel3(level2ID):
         "scenario": "PAGE_CATEGORY",
     }
 
-    response = requests.get(
+    response = request_with_retry("GET", 
         "http://147.136.167.34/api/v4/search/search_filter_config",
         headers=headers,
         # proxies=proxies,

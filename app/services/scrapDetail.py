@@ -1,4 +1,4 @@
-import requests
+from .http_utils import request_with_retry
 import random
 import string
 import re
@@ -78,7 +78,7 @@ def getDetailProduct(url):
         "item_id": item_id,
     }
 
-    response = requests.get(
+    response = request_with_retry("GET", 
         "http://147.136.167.34/api/v4/pdp/get_pc",
         params=params,
         headers=headers,

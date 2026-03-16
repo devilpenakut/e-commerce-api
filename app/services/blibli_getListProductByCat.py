@@ -1,10 +1,11 @@
-import requests
 import random
 import string
 import re
 import os
 import json
 import urllib.parse
+from .http_utils import request_with_retry
+from .blibli_cookies import get_blibli_cookies
 
 
 def randomPort():
@@ -21,7 +22,7 @@ def preGetLisProductByCat(cat_id):
         "accept": "application/json, text/plain, */*",
         "accept-language": "en-US,en;q=0.9",
         # 'cache-control': 'no-cache',
-        'cookie': 'bm_sz=464D62CB591628AC9CAFA31CE51D065E~YAAQR5gQAml3NGuLAQAAyq0GehWa6tWPV7bhUQAkB7plEhPPfN+174tNRykKYSXUJ0qDMCsqzIP2X3KrajABtqP4s9DG39rRtbdxM0GdkTrWMNGI53WV4/QlkN6XS+vsSkPgHAiB88B8ovl+jED7C009vAiVClEW/tX7vLpzCaFyV4uZsZkbswkHX3Da5SOvUv+IUVEXtS668q2c9TgHFHuOGlwgeGQulkznK/kS7bUO7lFNmLWUbwlLIhJkl++T185staNU4Ie/m8f66LKFFHrwSechKSvYh1Xn7WYfMzyLZ5M=~3617348~4408902; Blibli-Is-Member=false; Blibli-Is-Remember=false; Blibli-Device-Id=U.5f0f2d1c-1fcb-4ca4-96fb-0a3bf801c9f3; Blibli-Device-Id-Signature=c30998000358b19d23c79431a3fd0b8d43e0189f; Blibli-User-Id=f0cdd9c5-354d-47b8-83c8-800f336d6aaf; Blibli-Session-Id=e79d6177-b91c-48de-89db-0d494196b560; Blibli-Signature=4ff8014901beaf38d68ca9aa52649ed015833c3c; Blibli-dv-id=JD_-h9VUxaOfzZlpwObqFlBW9-8QAmWgDaKbFOxV8Rk6vd; Blibli-dv-token=JT__btDmpLSYfIihBHi6ZT75KZh1M9x6pkK9kjuhzGOi7D; Blibli-dv-id-version=2; _abck=9F748555848555FC89E1DCCDC2316EED~0~YAAQR5gQApt3NGuLAQAAR7QGegpC0grMJVr3Qgx2r6yfUPcjxKbVPYYbeL3lsva26DQZpIhu94nZ58mvYLCUr6dsvvA9NnUtheas+LiMW8TS6Dfut0jGRRN7+T5AfIHMTQpleu9wQ5S17a4adWoZw8g6Dfgeip5B/DXqwoJdKV7XVrsVwO8nKQI66TkQmRxyCTW24kvAJ6zDmTfAFT55O+eQgveWJIiENrBTlskO331W8yaBNDrfUE3H8UpG43p975lLqnRZ9IoHpuzYgJwEM/APZj8UEp+o0ba/DGMfvFKLpCDpNl1gEFQQnTyqgw060tcsPPSKTKzr9Q7i3rj1EVvdP9dta24cOVOjJHT3wr+lG0tcVjPjUGnXmyCHXkGk6vFjA1OHDAwK+fH6ldmSKgQb0uW9LOTX~-1~||-1||~-1; JSESSIONID=0753DE53D690C22EE8D41C9E0EC9B60A; bm_mi=F942A40E103769AC501A96A563B4F018~YAAQLiZzaGEjcmyLAQAACCMRehV1L/TnkY5qY/2O222Tc/6g9flpAe0YImmuDJMOe01KNPSq0lYMpPCDPrMWfp821pnU2MtCFqO2GEIjO50fAwcUHfNAqtX2ADYKQ84wecwwq7yY8ysyWkDgBonbWohof2Pe/lgqVhfcky+ERJnFxSOOK7zAL34pf7yWhu6x25ex7VIerd3tjq+upR+NhlvqUXJXj6JxQUiTBtD5njIf33vbxRR7WezzIMLgsQ4gQCpP18/myRypVOlVc9753MTQ/AMAt81FvVomI6cESEclA2zAULg/OSHtRwH6R6Mte8WpDjBrOL56qN8zBxIcBMswHNsSrzMRpfTf7H6EestM~1; bm_sv=BC6C98A679C7A4C87C4DF2DE16A3F23B~YAAQLiZzaHAjcmyLAQAADCcRehXHbhVyO78TPi9PeTOLoXRLfJ1QVSxRGGl8/1iZLkPaOOrJ7VMhQRKx95HHys/Y4BLAuO5zftglhmFd5uAPcLl8wq3MUvIl0cUrWv82yTWdDAU6QIhkIn7HgpZJCA/Sg3KGzy/IuzBgn2obMIPaHzBAFTseWm5GWYLqicpq70UEn1u6UMOtbyDdA3LjIpgtPxs1DHbIhbNKRO+uiRLpBzl4hlUd8Z8TJdSEdRd1nA==~1; ak_bmsc=0B1FD08A0E3F25299775AB19EA0B2C0E~000000000000000000000000000000~YAAQLiZzaIIjcmyLAQAA7pQRehWIjGoT1+SzceudSFAUGO5LPGZ77kxr7ADuAdcbBFKV98FtE/qFnLV5qFFc7dmk8ENKbUDID1UpPzVnTGdMN8TfCursDyFiRfZmThagC0suzJvGAml9zpfxBKUr1x2GAVjwBXU2iwA6Bcykne+YfXXymh7Eoqsj4asVEq8u7+bIjm2IUHiUCKlIRUQn2yUEqQkJ2QyDxViD7jvNjNNn5NQRJS6vp646vIRhiLN0CygWG+owyWq1pCNf7fQHSfuiMU0Pyplt3GhoD1+7ntaiPDs4i4hzS43qFF8drL5CInN0UuFGcQ03f6TN23c9PLp4dnV44IqNuCDzfr1L8Sh3ew91AQHySLn+AhqObjbQfgxrNUCm0lD52v857TD7ovhix+bJXrtGgv8WivWgw0Fk0+BpwqiJHLOaLeJWTJDWav6aBMuqXBSwI3r2R6CYEpK/9ic=; _abck=9F748555848555FC89E1DCCDC2316EED~-1~YAAQ2hQgF7tXWE6LAQAA39NSegrBHsuLdw1F17U+c8X+DpUj/vkIsRxoEy+Qrs3V1IpX0An5LBMpTGrz9ghjTAIYuqOPfatM2KDDgja4VGvLRbiPOMa3o7PgcjmOJhMmd6NiQo+SLjJ2IJtMMa6dVFi3yf844/XIbKYAqaG/PpCxjvq1tyRsrdMtYFPc4L/oFiNmFzYR37Y8aVq5kkWiYCvTS2ITLOPtS94sdTsOr+ENSqhJlkQ1UWmYv+HaqhK7oCgixoZ5mzG5/AOrqkWpYOTcjFOeDhgQuyQrLzeapQzoC8zijk3KCLY7AF1Frqp+XbDGjj/TsmYEh+eaj/8I2KAINfSQJhwNV1LIMMRDVQNbItIQh/tPmLM2UgPFqmjk6VIqjmgcyJRMYU9bQB1hGY4gnwQOkmpx~0~-1~-1; bm_sv=BC6C98A679C7A4C87C4DF2DE16A3F23B~YAAQHdxZJA6DHmyLAQAA22cSehW8CMDhPiwfrO068eESURorwP18iDR6y4vUysVDugIT3cv2d5zcvvJEi9SDf1c+LuJ7GEFlXlsRt5ki2D9E8DDrFQwKvoQ0XZJbBj8viLbgQ/IF15zIB83f8cqhXruMdpWuOBMlTFgQTtkIhVOlvjN3qLdC9VbGUxXVlQBiZ9DDB01esoadqY+0z33LeU/a3Lt8Y9WUkA/0cb9R3YuYBKzzMCVINiA+dD8NESneNQ==~1',
+        'cookie': get_blibli_cookies() or '',
         "referer": "https://www.blibli.com/c/",
         "sec-ch-ua-mobile": "?1",
         "sec-ch-ua-platform": '"Android"',
@@ -39,7 +40,7 @@ def preGetLisProductByCat(cat_id):
         "http": proxy_url,
         "https": proxy_url,
     }
-    response = requests.request(
+    response = request_with_retry(
         "GET", url, headers=headers, data=payload, proxies=proxies
     )
 
@@ -57,7 +58,7 @@ def getLisProductByCat(cat_id, page):
         "accept": "application/json, text/plain, */*",
         "accept-language": "en-US,en;q=0.9",
         # "cache-control": "no-cache",
-        'cookie': 'bm_sz=464D62CB591628AC9CAFA31CE51D065E~YAAQR5gQAml3NGuLAQAAyq0GehWa6tWPV7bhUQAkB7plEhPPfN+174tNRykKYSXUJ0qDMCsqzIP2X3KrajABtqP4s9DG39rRtbdxM0GdkTrWMNGI53WV4/QlkN6XS+vsSkPgHAiB88B8ovl+jED7C009vAiVClEW/tX7vLpzCaFyV4uZsZkbswkHX3Da5SOvUv+IUVEXtS668q2c9TgHFHuOGlwgeGQulkznK/kS7bUO7lFNmLWUbwlLIhJkl++T185staNU4Ie/m8f66LKFFHrwSechKSvYh1Xn7WYfMzyLZ5M=~3617348~4408902; Blibli-Is-Member=false; Blibli-Is-Remember=false; Blibli-Device-Id=U.5f0f2d1c-1fcb-4ca4-96fb-0a3bf801c9f3; Blibli-Device-Id-Signature=c30998000358b19d23c79431a3fd0b8d43e0189f; Blibli-User-Id=f0cdd9c5-354d-47b8-83c8-800f336d6aaf; Blibli-Session-Id=e79d6177-b91c-48de-89db-0d494196b560; Blibli-Signature=4ff8014901beaf38d68ca9aa52649ed015833c3c; Blibli-dv-id=JD_-h9VUxaOfzZlpwObqFlBW9-8QAmWgDaKbFOxV8Rk6vd; Blibli-dv-token=JT__btDmpLSYfIihBHi6ZT75KZh1M9x6pkK9kjuhzGOi7D; Blibli-dv-id-version=2; _abck=9F748555848555FC89E1DCCDC2316EED~0~YAAQR5gQApt3NGuLAQAAR7QGegpC0grMJVr3Qgx2r6yfUPcjxKbVPYYbeL3lsva26DQZpIhu94nZ58mvYLCUr6dsvvA9NnUtheas+LiMW8TS6Dfut0jGRRN7+T5AfIHMTQpleu9wQ5S17a4adWoZw8g6Dfgeip5B/DXqwoJdKV7XVrsVwO8nKQI66TkQmRxyCTW24kvAJ6zDmTfAFT55O+eQgveWJIiENrBTlskO331W8yaBNDrfUE3H8UpG43p975lLqnRZ9IoHpuzYgJwEM/APZj8UEp+o0ba/DGMfvFKLpCDpNl1gEFQQnTyqgw060tcsPPSKTKzr9Q7i3rj1EVvdP9dta24cOVOjJHT3wr+lG0tcVjPjUGnXmyCHXkGk6vFjA1OHDAwK+fH6ldmSKgQb0uW9LOTX~-1~||-1||~-1; JSESSIONID=0753DE53D690C22EE8D41C9E0EC9B60A; bm_mi=F942A40E103769AC501A96A563B4F018~YAAQLiZzaGEjcmyLAQAACCMRehV1L/TnkY5qY/2O222Tc/6g9flpAe0YImmuDJMOe01KNPSq0lYMpPCDPrMWfp821pnU2MtCFqO2GEIjO50fAwcUHfNAqtX2ADYKQ84wecwwq7yY8ysyWkDgBonbWohof2Pe/lgqVhfcky+ERJnFxSOOK7zAL34pf7yWhu6x25ex7VIerd3tjq+upR+NhlvqUXJXj6JxQUiTBtD5njIf33vbxRR7WezzIMLgsQ4gQCpP18/myRypVOlVc9753MTQ/AMAt81FvVomI6cESEclA2zAULg/OSHtRwH6R6Mte8WpDjBrOL56qN8zBxIcBMswHNsSrzMRpfTf7H6EestM~1; bm_sv=BC6C98A679C7A4C87C4DF2DE16A3F23B~YAAQLiZzaHAjcmyLAQAADCcRehXHbhVyO78TPi9PeTOLoXRLfJ1QVSxRGGl8/1iZLkPaOOrJ7VMhQRKx95HHys/Y4BLAuO5zftglhmFd5uAPcLl8wq3MUvIl0cUrWv82yTWdDAU6QIhkIn7HgpZJCA/Sg3KGzy/IuzBgn2obMIPaHzBAFTseWm5GWYLqicpq70UEn1u6UMOtbyDdA3LjIpgtPxs1DHbIhbNKRO+uiRLpBzl4hlUd8Z8TJdSEdRd1nA==~1; ak_bmsc=0B1FD08A0E3F25299775AB19EA0B2C0E~000000000000000000000000000000~YAAQLiZzaIIjcmyLAQAA7pQRehWIjGoT1+SzceudSFAUGO5LPGZ77kxr7ADuAdcbBFKV98FtE/qFnLV5qFFc7dmk8ENKbUDID1UpPzVnTGdMN8TfCursDyFiRfZmThagC0suzJvGAml9zpfxBKUr1x2GAVjwBXU2iwA6Bcykne+YfXXymh7Eoqsj4asVEq8u7+bIjm2IUHiUCKlIRUQn2yUEqQkJ2QyDxViD7jvNjNNn5NQRJS6vp646vIRhiLN0CygWG+owyWq1pCNf7fQHSfuiMU0Pyplt3GhoD1+7ntaiPDs4i4hzS43qFF8drL5CInN0UuFGcQ03f6TN23c9PLp4dnV44IqNuCDzfr1L8Sh3ew91AQHySLn+AhqObjbQfgxrNUCm0lD52v857TD7ovhix+bJXrtGgv8WivWgw0Fk0+BpwqiJHLOaLeJWTJDWav6aBMuqXBSwI3r2R6CYEpK/9ic=; _abck=9F748555848555FC89E1DCCDC2316EED~-1~YAAQl3UyF/XGC3aLAQAAJrdPegoRkoxXcDc145q4t6laJf7ggw/TGnKQLrlgoD8JXjH49ay99Eyq45knIJ3zWlxI3q3w107UpAXXI2RCzPvINorvdvqnHzqnzXPiOXS3c5A4frYSt0D0rM198tqsFLLSRMftQR/tPyHj6nxRH3Ag9ULDyxma1F6OTSB9jd3+Nit6a9+4cr3vN1TCsRVEMAKTKB5PCQXec7wm0sAr0WJTLg3HofPMAg7VUArudmNLpSH+AUvGCF53ZtpTvUikWygF+l2p4TlVhQ8HPj9hJeg8eOQDCOZO2SOs4j3OdB1du9EavvtVzKoZKBaQ+IsPzjS+oLxwUJePfhDm7WEzszUpfaSy6AuQJJ76+v5a11JNxXJyZonDKvvT1C1E0jRYg5d/rME9mwYk~0~-1~-1; bm_sv=BC6C98A679C7A4C87C4DF2DE16A3F23B~YAAQHdxZJA6DHmyLAQAA22cSehW8CMDhPiwfrO068eESURorwP18iDR6y4vUysVDugIT3cv2d5zcvvJEi9SDf1c+LuJ7GEFlXlsRt5ki2D9E8DDrFQwKvoQ0XZJbBj8viLbgQ/IF15zIB83f8cqhXruMdpWuOBMlTFgQTtkIhVOlvjN3qLdC9VbGUxXVlQBiZ9DDB01esoadqY+0z33LeU/a3Lt8Y9WUkA/0cb9R3YuYBKzzMCVINiA+dD8NESneNQ==~1',
+        'cookie': get_blibli_cookies() or '',
         "params": "[object Object]",
         "referer": "https://www.blibli.com/c/",
         "sec-ch-ua-mobile": "?1",
@@ -77,7 +78,7 @@ def getLisProductByCat(cat_id, page):
         "https": proxy_url,
     }
     preGetLisProductByCat(cat_id)
-    response = requests.request(
+    response = request_with_retry(
         "GET", url, headers=headers, data=payload, proxies=proxies
     )
     return response.json()

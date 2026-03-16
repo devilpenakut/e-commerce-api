@@ -1,4 +1,4 @@
-import requests
+from .http_utils import request_with_retry
 import random
 import string
 import re
@@ -45,7 +45,7 @@ def getRating(productID):
         "http": proxy_url,
         "https": proxy_url,
     }
-  response = requests.request("POST", url, headers=headers, data=payload, proxies= proxies)
+  response = request_with_retry("POST", url, headers=headers, data=payload, proxies= proxies)
   response = response.json()
   response = response[0]['data']['productrevGetProductRatingAndTopics']
   return response
@@ -110,7 +110,7 @@ def getProductInfo(productURL):
         "http": proxy_url,
         "https": proxy_url,
     }
-  response = requests.request("POST", url, headers=headers, data=payload, proxies= proxies)
+  response = request_with_retry("POST", url, headers=headers, data=payload, proxies= proxies)
 
   productID = response.json()[0]['data']['pdpGetLayout']['basicInfo']['id']
   data_rating = getRating(productID)
